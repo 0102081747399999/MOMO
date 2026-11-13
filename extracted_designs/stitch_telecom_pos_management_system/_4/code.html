@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;family=Tajawal:wght@500;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container": "#e5eeff", "on-primary-fixed": "#0d1c32", "primary-fixed": "#d6e3ff", "on-error": "#ffffff", "primary-fixed-dim": "#b9c7e4", "surface-container-high": "#dce9ff", "surface-container-low": "#eff4ff", "on-tertiary-container": "#009668", "error": "#ba1a1a", "inverse-on-surface": "#eaf1ff", "on-background": "#0b1c30", "secondary-fixed": "#dbe1ff", "tertiary-container": "#002113", "on-secondary-fixed": "#00174b", "outline-variant": "#c5c6cd", "on-primary": "#ffffff", "surface": "#f8f9ff", "outline": "#75777e", "on-error-container": "#93000a", "on-secondary-fixed-variant": "#003ea8", "inverse-surface": "#213145", "on-tertiary-fixed-variant": "#005236", "primary-container": "#0d1c32", "surface-container-lowest": "#ffffff", "on-tertiary": "#ffffff", "on-primary-fixed-variant": "#39475f", "tertiary": "#000000", "error-container": "#ffdad6", "on-surface-variant": "#44474d", "on-surface": "#0b1c30", "secondary-fixed-dim": "#b4c5ff", "on-primary-container": "#76849f", "on-secondary": "#ffffff", "tertiary-fixed-dim": "#4edea3", "on-secondary-container": "#fefcff", "surface-tint": "#515f78", "primary": "#000000", "surface-variant": "#d3e4fe", "inverse-primary": "#b9c7e4", "tertiary-fixed": "#6ffbbe", "on-tertiary-fixed": "#002113", "secondary-container": "#316bf3", "secondary": "#0051d5", "surface-bright": "#f8f9ff", "surface-dim": "#cbdbf5", "surface-container-highest": "#d3e4fe", "background": "#f8f9ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2rem", "gutter-desktop": "1.5rem", "gutter": "1rem", "margin": "1rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem", "margin-desktop": "2rem" }, "fontFamily": { "headline-sm": [ "Cairo" ], "label-lg": [ "Tajawal" ], "body-sm": [ "Cairo" ], "price-display": [ "Cairo" ], "body-lg": [ "Cairo" ], "headline-lg": [ "Cairo" ], "body-md": [ "Cairo" ], "headline-md": [ "Cairo" ], "label-sm": [ "Tajawal" ], "headline-lg-mobile": [ "Cairo" ], "headline-xl-mobile": [ "Cairo" ], "label-md": [ "Tajawal" ], "code-mono": [ "JetBrains Mono" ], "headline-xl": [ "Cairo" ] }, "fontSize": { "headline-sm": [ "16px", { "lineHeight": "24px", "fontWeight": "600" } ], "label-lg": [ "14px", { "lineHeight": "20px", "fontWeight": "500" } ], "body-sm": [ "12px", { "lineHeight": "18px", "fontWeight": "400" } ], "price-display": [ "32px", { "lineHeight": "40px", "fontWeight": "800" } ], "body-lg": [ "16px", { "lineHeight": "26px", "fontWeight": "400" } ], "headline-lg": [ "28px", { "lineHeight": "38px", "fontWeight": "700" } ], "body-md": [ "14px", { "lineHeight": "22px", "fontWeight": "400" } ], "headline-md": [ "20px", { "lineHeight": "28px", "fontWeight": "600" } ], "label-sm": [ "11px", { "lineHeight": "14px", "fontWeight": "700" } ], "headline-lg-mobile": [ "22px", { "lineHeight": "30px", "fontWeight": "700" } ], "headline-xl-mobile": [ "26px", { "lineHeight": "36px", "fontWeight": "700" } ], "label-md": [ "12px", { "lineHeight": "16px", "fontWeight": "500" } ], "code-mono": [ "13px", { "lineHeight": "18px", "fontWeight": "500" } ], "headline-xl": [ "36px", { "lineHeight": "48px", "fontWeight": "700" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased select-none"><aside class="fixed right-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-gutter flex items-center gap-space-sm bg-surface-container-lowest"><img alt="Telecom &amp; Mobile POS Hub Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBUT1stGZS0wGgLpVC-SwHtTvVGYjjBEci41zHpyqxxXGu1l5CP4lI7MJk4sHlmQ0z4Ea8-WC4Prx5hFZpwFBpi9Gm0j9h1z2sfylf1rJL9XSwEey0Qs2pyNrkNXeuKl4Mka4vvvLCdiBUALNcKh10h06Fi8UezWQbaDvz7YArUl6n7Yg1XAZg_dhM9XqTMONX4YAU_h3ZpgQmyiQXRFoGXeEsVD7cgs3wdnjs5tBNJ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface">سنترال بلس</span><span class="font-label-sm text-label-sm text-on-surface-variant">POS &amp; Telecom System</span></div></div><div class="p-space-sm"><div class="bg-surface-container px-space-md py-space-sm rounded-lg flex items-center justify-between mb-space-sm"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-[20px]">storefront</span><span class="font-label-md text-label-md text-on-surface">الفرع الرئيسي (1)</span></div><span class="bg-surface-container-lowest text-secondary font-code-mono text-label-sm px-space-xs py-0.5 rounded">ONLINE</span></div></div><nav class="flex flex-col gap-1 px-space-sm" data-active-classes="bg-secondary text-on-secondary font-bold shadow-[0_4px_6px_-1px_rgba(10,25,47,0.07)]"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard-overview" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-label-lg text-label-lg">لوحة الإدارة والمؤشرات</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="vodafone-cash-wallets" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">account_balance_wallet</span><span class="font-label-lg text-label-lg">محافظ فودافون كاش</span></div><span class="bg-surface-container-highest text-on-surface font-code-mono text-label-sm px-space-xs py-0.5 rounded-full">18 خط</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-all bg-secondary text-on-secondary font-bold shadow-[0_4px_6px_-1px_rgba(10,25,47,0.07)]" data-path="chargers-cables" href="#"><span class="material-symbols-outlined text-[20px]">cable</span><span class="font-label-lg text-label-lg">الشواحن والوصلات</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="phones-sales-inventory" href="#"><span class="material-symbols-outlined text-[20px]">smartphone</span><span class="font-label-lg text-label-lg">مبيعات التليفونات (IMEI)</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="headphones-audio" href="#"><span class="material-symbols-outlined text-[20px]">headphones</span><span class="font-label-lg text-label-lg">قسم السماعات والصوتيات</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="speakers-sound" href="#"><span class="material-symbols-outlined text-[20px]">speaker</span><span class="font-label-lg text-label-lg">قسم الصبات والمكبرات</span></a></nav></div><div class="p-space-sm flex flex-col gap-space-xs bg-surface-container-lowest mx-space-sm mb-space-sm rounded-xl"><div class="flex items-center justify-between"><span class="font-label-md text-label-md text-on-surface-variant">درج الكاشير الحالي</span><span class="font-code-mono text-label-md text-on-tertiary-container font-bold">نشط</span></div><div class="flex items-baseline justify-between"><span class="font-headline-sm text-headline-sm text-on-surface">0.00</span><span class="font-label-md text-label-md text-on-surface-variant">ج.م</span></div><div class="pt-space-xs flex items-center justify-between text-on-surface-variant"><span class="font-label-sm text-label-sm">الوردية: صباحية #402</span><button class="hover:text-secondary flex items-center" type="button"><span class="material-symbols-outlined text-[16px]">lock_clock</span></button></div></div></aside><div class="pr-72 min-h-screen flex flex-col justify-between"><header class="fixed top-0 right-72 left-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-desktop"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-space-xs rounded-full shadow-[0_1px_3px_0_rgba(10,25,47,0.04)]"><span class="w-2.5 h-2.5 rounded-full bg-on-tertiary-container animate-pulse"></span><span class="font-label-md text-label-md text-on-surface">قارئ الباركود متصل جاهز للمسح</span><span class="material-symbols-outlined text-on-tertiary-container text-[18px]">qr_code_scanner</span></div><button class="bg-secondary-container hover:bg-secondary text-on-secondary px-space-md py-space-xs rounded-lg flex items-center gap-space-xs transition-all shadow-[0_4px_6px_-1px_rgba(10,25,47,0.07)]" type="button"><span class="material-symbols-outlined text-[18px]">bolt</span><span class="font-headline-sm text-headline-sm">نقطة بيع سريعة (POS)</span><kbd class="bg-surface-container-lowest/20 font-code-mono text-label-sm px-1.5 py-0.5 rounded text-on-secondary">F2</kbd></button><button class="bg-surface-container-high hover:bg-surface-container text-on-surface px-space-md py-space-xs rounded-lg flex items-center gap-space-xs transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">add_circle</span><span class="font-label-lg text-label-lg">صنف جديد</span><kbd class="bg-surface-container-lowest font-code-mono text-label-sm px-1.5 py-0.5 rounded text-on-surface-variant">F1</kbd></button></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container-low px-space-md py-space-xs rounded-lg"><span class="font-label-md text-label-md text-on-surface-variant">عهدة الكاش:</span><span class="font-headline-sm text-headline-sm text-secondary">0.00 ج.م</span></div><button class="w-9 h-9 rounded-lg bg-surface-container-low hover:bg-surface-container flex items-center justify-center text-on-surface relative transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 left-2 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-space-xs pr-space-xs"><div class="flex flex-col text-left"><span class="font-label-lg text-label-lg text-on-surface">أحمد الكاشير</span><span class="font-label-sm text-label-sm text-on-surface-variant">مدير وردية</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 pb-10 px-gutter-desktop bg-surface flex-1"><div class="flex flex-col w-full">
+<!-- Top Stat Bento Grid (Zero State Baseline) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-md mb-space-lg">
+<!-- Stat 1: Total Stock Quantity -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between relative overflow-hidden group">
+<div class="flex flex-col z-10">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          إجمالي الكمية بالمخزن
+        </span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-price-display text-price-display text-on-surface tracking-tight" id="stat-total-qty">0</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">قطعة</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">جاهزة للبيع المباشر</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[28px]">inventory_2</span>
+</div>
+<div class="absolute -left-3 -bottom-3 w-16 h-16 bg-secondary/5 rounded-full blur-xl pointer-events-none"></div>
+</div>
+<!-- Stat 2: Total Cost Valuation -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between relative overflow-hidden">
+<div class="flex flex-col z-10">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary-container"></span>
+          قيمة المخزون (شراء)
+        </span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-price-display text-price-display text-on-surface tracking-tight" id="stat-cost-val">0.00</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ج.م</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">تكلفة التوريد الفعلية</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-[28px]">payments</span>
+</div>
+</div>
+<!-- Stat 3: Retail Estimated Revenue -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between relative overflow-hidden">
+<div class="flex flex-col z-10">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+          قيمة المخزون المتوقعة (بيع)
+        </span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-price-display text-price-display text-on-tertiary-container tracking-tight" id="stat-retail-val">0.00</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ج.م</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-tertiary-container mt-0.5">أرباح تقديرية: 0.00 ج.م</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[28px]">trending_up</span>
+</div>
+</div>
+<!-- Stat 4: Low Stock Out of Stock Alert -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between relative overflow-hidden">
+<div class="flex flex-col z-10">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+          النواقص والحد الأدنى
+        </span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-price-display text-price-display text-error tracking-tight" id="stat-low-stock">0</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">أصناف حرجة</span>
+</div>
+<span class="font-label-sm text-label-sm text-error mt-0.5">بحاجة لإعادة طلب</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-error-container/40 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[28px]">notification_important</span>
+</div>
+</div>
+</div>
+<!-- Category Filter Pill Strip (The 5 Specific Categories Requested) -->
+<div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm mb-space-lg flex items-center justify-between gap-space-sm flex-wrap">
+<div class="flex items-center gap-2 overflow-x-auto py-1 scrollbar-none" id="category-filters">
+<!-- 1. شاحن كامل (نشط مبدئياً) -->
+<button class="category-pill active flex items-center gap-2 px-space-md py-space-xs rounded-lg bg-primary text-on-primary transition-all shadow-sm" data-cat="all" onclick="filterCategory('all', this)" type="button">
+<span class="material-symbols-outlined text-[18px]">select_all</span>
+<span class="font-label-lg text-label-lg font-bold">جميع التصنيفات</span>
+<span class="bg-white/20 text-on-primary font-code-mono text-label-sm px-1.5 py-0.5 rounded-full" id="count-all">0</span>
+</button>
+<!-- 2. شاحن كامل (Complete Charger) -->
+<button class="category-pill flex items-center gap-2 px-space-md py-space-xs rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-cat="complete" onclick="filterCategory('complete', this)" type="button">
+<span class="material-symbols-outlined text-[18px]">power</span>
+<span class="font-label-lg text-label-lg">شاحن كامل (Complete Charger)</span>
+<span class="bg-surface-container text-on-surface font-code-mono text-label-sm px-1.5 py-0.5 rounded-full" id="count-complete">0</span>
+</button>
+<!-- 3. رأس شاحن (Charger Adapter/Head) -->
+<button class="category-pill flex items-center gap-2 px-space-md py-space-xs rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-cat="adapter" onclick="filterCategory('adapter', this)" type="button">
+<span class="material-symbols-outlined text-[18px]">stream_apps</span>
+<span class="font-label-lg text-label-lg">رأس شاحن (Adapter/Head)</span>
+<span class="bg-surface-container text-on-surface font-code-mono text-label-sm px-1.5 py-0.5 rounded-full" id="count-adapter">0</span>
+</button>
+<!-- 4. وصلة شحن عريضة (Type-C Cable) -->
+<button class="category-pill flex items-center gap-2 px-space-md py-space-xs rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-cat="typec" onclick="filterCategory('typec', this)" type="button">
+<span class="material-symbols-outlined text-[18px]">cable</span>
+<span class="font-label-lg text-label-lg">وصلة شحن عريضة (Type-C)</span>
+<span class="bg-surface-container text-on-surface font-code-mono text-label-sm px-1.5 py-0.5 rounded-full" id="count-typec">0</span>
+</button>
+<!-- 5. وصلة شحن عادية (Micro-USB Cable) -->
+<button class="category-pill flex items-center gap-2 px-space-md py-space-xs rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-cat="micro" onclick="filterCategory('micro', this)" type="button">
+<span class="material-symbols-outlined text-[18px]">usb</span>
+<span class="font-label-lg text-label-lg">وصلة شحن عادية (Micro-USB)</span>
+<span class="bg-surface-container text-on-surface font-code-mono text-label-sm px-1.5 py-0.5 rounded-full" id="count-micro">0</span>
+</button>
+<!-- 6. وصلة شحن رفيعة (Thin/Pin Cable) -->
+<button class="category-pill flex items-center gap-2 px-space-md py-space-xs rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-cat="pin" onclick="filterCategory('pin', this)" type="button">
+<span class="material-symbols-outlined text-[18px]">settings_ethernet</span>
+<span class="font-label-lg text-label-lg">وصلة رفيعة (Thin/Pin)</span>
+<span class="bg-surface-container text-on-surface font-code-mono text-label-sm px-1.5 py-0.5 rounded-full" id="count-pin">0</span>
+</button>
+</div>
+<!-- Quick Excel Export / Report helper -->
+<div class="flex items-center gap-2">
+<button class="px-space-sm py-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant flex items-center gap-1 transition-colors" onclick="exportDataNotice()" title="تصدير كشف الجرد الحالي" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span class="font-label-sm text-label-sm">تصدير إكسيل</span>
+</button>
+<button class="px-space-sm py-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant flex items-center gap-1 transition-colors" onclick="openPrintBulkLabelsModal()" title="طباعة باركود الأصناف المختارة" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+<span class="font-label-sm text-label-sm">ملصقات حرارية</span>
+</button>
+</div>
+</div>
+<!-- Operational Scanner & Control Bar -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm mb-space-lg flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<!-- Barcode Scanner Input Zone -->
+<div class="flex-1 relative flex items-center">
+<div class="absolute right-3.5 flex items-center gap-1.5 text-secondary pointer-events-none">
+<span class="material-symbols-outlined text-[22px] animate-pulse">qr_code_scanner</span>
+</div>
+<input class="w-full bg-surface-container-low focus:bg-surface-container-lowest pr-12 pl-24 py-3 rounded-xl text-on-surface font-body-md text-body-md placeholder:text-on-surface-variant/60 focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="barcode-live-input" onkeydown="handleLiveScanKeydown(event)" placeholder="امسح الباركود هنا لإضافة الصنف أو الجرد التلقائي... (F2 أو الباركود)" type="text"/>
+<div class="absolute left-3 flex items-center gap-1">
+<span class="bg-surface-container-high text-on-surface-variant font-code-mono text-label-sm px-2 py-1 rounded">AUTO-SCAN</span>
+</div>
+</div>
+<!-- Actions & Add Trigger -->
+<div class="flex items-center gap-space-sm self-end lg:self-auto">
+<div class="relative">
+<input class="bg-surface-container-low pr-9 pl-3 py-2.5 rounded-xl text-on-surface font-body-sm text-body-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:ring-2 focus:ring-secondary w-56 transition-all" id="table-search-query" oninput="handleSearchQuery(this.value)" placeholder="بحث بالاسم أو الموديل..." type="text"/>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-on-surface-variant text-[18px] pointer-events-none">search</span>
+</div>
+<button class="bg-secondary hover:bg-secondary-container text-on-secondary px-space-lg py-2.5 rounded-xl font-headline-sm text-headline-sm flex items-center gap-space-xs shadow-[0_4px_6px_-1px_rgba(10,25,47,0.07)] active:scale-95 transition-all" onclick="openAddModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>+ إضافة صنف شاحن / وصلة جديدة</span>
+<kbd class="bg-white/20 font-code-mono text-label-sm px-1.5 py-0.5 rounded text-white">Ins</kbd>
+</button>
+</div>
+</div>
+<!-- Inventory Table Container & Dynamic Empty State -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col mb-space-xl">
+<!-- Table Header Info Bar -->
+<div class="px-space-md py-space-sm bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">tune</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">قائمة مخزون الشواحن والكابلات السلكية</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full" id="active-filter-indicator">كل الأصناف</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span>تحديث فوري لدرج المخزن</span>
+</div>
+</div>
+<!-- Data Table Responsive Wrapper -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-right border-collapse" id="products-table">
+<thead>
+<tr class="bg-surface-container/50 text-on-surface-variant font-label-md text-label-md select-none">
+<th class="py-3 px-space-md font-bold">الباركود (Barcode)</th>
+<th class="py-3 px-space-md font-bold">اسم المنتج / الموديل</th>
+<th class="py-3 px-space-md font-bold">التصنيف</th>
+<th class="py-3 px-space-md font-bold">سعر الشراء (جملة)</th>
+<th class="py-3 px-space-md font-bold">سعر البيع (قطاعي)</th>
+<th class="py-3 px-space-md font-bold">هامش الربح</th>
+<th class="py-3 px-space-md font-bold text-center">الكمية بالمحل</th>
+<th class="py-3 px-space-md font-bold text-center">حالة الرصيد</th>
+<th class="py-3 px-space-md font-bold text-center">الإجراءات</th>
+</tr>
+</thead>
+<tbody id="inventory-tbody">
+<!-- Rows will be injected dynamically via JS -->
+</tbody>
+</table>
+</div>
+<!-- Empty State Representation (Displayed by default when 0 items) -->
+<div class="p-12 flex flex-col items-center justify-center text-center" id="table-empty-state">
+<div class="relative w-28 h-28 mb-4 flex items-center justify-center">
+<!-- Ambient decorative blur circle -->
+<div class="absolute inset-0 bg-secondary/10 rounded-full blur-2xl"></div>
+<!-- Hardware Charger & Cable Vector Graphic Inline -->
+<svg class="w-24 h-24 text-secondary/80 relative z-10" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 100 100">
+<!-- Wall Charger Block -->
+<rect class="fill-surface-container" height="42" rx="6" width="36" x="18" y="24"></rect>
+<line stroke-width="3" x1="28" x2="28" y1="14" y2="24"></line>
+<line stroke-width="3" x1="44" x2="44" y1="14" y2="24"></line>
+<!-- USB port on charger -->
+<rect class="fill-on-surface-variant/40" height="6" rx="1.5" width="14" x="29" y="52"></rect>
+<!-- Curved Cable looping gracefully -->
+<path d="M 36 66 C 36 82, 64 88, 68 70 C 72 52, 70 38, 80 34" stroke="currentColor" stroke-dasharray="2 3"></path>
+<!-- Cable Head (Type-C / Lightning) -->
+<rect class="fill-surface-container-high" height="16" rx="2" width="10" x="76" y="22"></rect>
+<rect class="fill-secondary" height="7" rx="1" width="6" x="78" y="15"></rect>
+<!-- Spark indicator for electric juice -->
+<path class="text-on-tertiary-container" d="M 52 38 L 47 45 L 53 45 L 48 53" fill="none" stroke="currentColor" stroke-width="2"></path>
+</svg>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2">لا توجد شواحن أو وصلات مسجلة في هذا القسم</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-6 leading-relaxed">
+        المخزون يبدأ من الصفر تماماً. يمكنك مسح باركود المنتج مباشرة بالماسح الضوئي لتوليد صنف جديد، أو الضغط على زر الإضافة لتسجيل شحنتك الأولى.
+      </p>
+<div class="flex items-center gap-space-md flex-wrap justify-center">
+<button class="bg-secondary hover:bg-secondary-container text-on-secondary px-space-xl py-3 rounded-xl font-headline-sm text-headline-sm flex items-center gap-2 shadow-[0_4px_6px_-1px_rgba(10,25,47,0.07)] active:scale-95 transition-all" onclick="openAddModal()" type="button">
+<span class="material-symbols-outlined text-[22px]">add_box</span>
+<span>+ إضافة أول شاحن أو وصلة</span>
+</button>
+<button class="bg-surface-container-high hover:bg-surface-container text-on-surface px-space-lg py-3 rounded-xl font-label-lg text-label-lg flex items-center gap-2 transition-colors" onclick="seedSampleDataset()" type="button">
+<span class="material-symbols-outlined text-[20px]">dataset</span>
+<span>تحميل نموذج تجريبي (شحنة افتتاحية)</span>
+</button>
+</div>
+<!-- Quick Helpful Guide Pills -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md mt-10 max-w-3xl w-full text-right">
+<div class="bg-surface-container-low p-space-md rounded-xl flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[22px] mt-0.5">barcode_scanner</span>
+<div>
+<span class="font-label-md text-label-md font-bold text-on-surface block">مسح حراري فوري</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">الماسح الضوئي مفعّل بدون الحاجة للضغط على الفأرة.</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-xl flex items-start gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container text-[22px] mt-0.5">calculate</span>
+<div>
+<span class="font-label-md text-label-md font-bold text-on-surface block">حساب تلقائي للأرباح</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">يقوم النظام بحساب فرق سعر الجملة والقطاعي آلياً.</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-xl flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-[22px] mt-0.5">notifications_active</span>
+<div>
+<span class="font-label-md text-label-md font-bold text-on-surface block">تنبيه بالنواقص</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">تلقي إشعار فور هبوط كمية أي صنف تحت حد الطلب.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Table Bottom Utility Bar -->
+<div class="hidden px-space-md py-space-sm bg-surface-container-low items-center justify-between" id="table-footer-pagination">
+<span class="font-label-md text-label-md text-on-surface-variant" id="table-showing-count">عرض 0 صنف</span>
+<div class="flex items-center gap-2">
+<button class="p-1 rounded bg-surface-container text-on-surface-variant opacity-50 cursor-not-allowed" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<span class="font-code-mono text-label-sm px-2 py-0.5 bg-surface-container-lowest rounded text-on-surface">1</span>
+<button class="p-1 rounded bg-surface-container text-on-surface-variant opacity-50 cursor-not-allowed" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ADD / EDIT PRODUCT MODAL (Backdrop & Window) -->
+<div class="fixed inset-0 z-50 bg-[#0b1c30]/60 backdrop-blur-sm hidden flex items-center justify-center p-4" id="product-modal">
+<div class="bg-surface-container-lowest rounded-2xl shadow-xl w-full max-w-2xl overflow-hidden flex flex-col max-h-[942px] animate-in fade-in zoom-in-95 duration-200">
+<!-- Modal Header -->
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]" id="modal-header-icon">add_shopping_cart</span>
+</div>
+<div class="flex flex-col">
+<h2 class="font-headline-md text-headline-md text-on-surface" id="modal-title">إضافة صنف جديد (شاحن / وصلة)</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">تسجيل بيانات التوريد والمخزن بدقة</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant transition-colors" onclick="closeProductModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body / Form -->
+<form class="p-space-lg flex flex-col gap-space-md overflow-y-auto" id="product-form" onsubmit="saveProduct(event)">
+<input id="edit-product-id" type="hidden" value=""/>
+<!-- Barcode Field with Generator & Scanner Auto-fill -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-on-surface flex items-center justify-between">
+<span class="font-bold">كود الباركود (Barcode / Serial) *</span>
+<span class="text-on-surface-variant font-label-sm">يمكن المسح الآن أو التوليد آلياً</span>
+</label>
+<div class="flex gap-2">
+<div class="relative flex-1">
+<input class="w-full bg-surface-container-low focus:bg-surface-container-lowest pr-10 pl-3 py-2.5 rounded-xl font-code-mono text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="f-barcode" placeholder="مثال: 622109823401 أو اضغط توليد" required="" type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-secondary text-[20px]">qr_code_2</span>
+</div>
+<button class="px-3 py-2.5 rounded-xl bg-surface-container-high hover:bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1 transition-colors whitespace-nowrap" onclick="generateBarcode()" type="button">
+<span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
+<span>توليد تلقائي</span>
+</button>
+</div>
+</div>
+<!-- Product Name & Model -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-on-surface font-bold">اسم الصنف والموديل والماركة *</label>
+<input class="w-full bg-surface-container-low focus:bg-surface-container-lowest px-3 py-2.5 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="f-name" placeholder="مثال: شاحن أنكر نانو 20 واط سريع (Anker Nano 20W PD) أسود" required="" type="text"/>
+</div>
+<!-- Specific Category Selector (Matching the 5 requested categories) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-on-surface font-bold">التصنيف الدقيق *</label>
+<select class="w-full bg-surface-container-low focus:bg-surface-container-lowest px-3 py-2.5 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="f-category" required="">
+<option value="complete">شاحن كامل (Complete Charger)</option>
+<option value="adapter">رأس شاحن (Charger Adapter/Head)</option>
+<option value="typec">وصلة شحن عريضة (Type-C Cable)</option>
+<option value="micro">وصلة شحن عادية (Micro-USB Cable)</option>
+<option value="pin">وصلة شحن رفيعة (Thin/Pin Cable)</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-on-surface font-bold">القدرة / الطول / الخامة</label>
+<input class="w-full bg-surface-container-low focus:bg-surface-container-lowest px-3 py-2.5 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="f-spec" placeholder="مثال: 65W GaN / سلك قماش 1.2 متر" type="text"/>
+</div>
+</div>
+<!-- Financial: Buy Price, Sell Price & Margin Preview -->
+<div class="p-space-md bg-surface-container-low/70 rounded-xl grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-bold">سعر الشراء (جملة) *</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest pr-3 pl-10 py-2 rounded-lg font-code-mono text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary text-left" id="f-cost" min="0" oninput="calcMarginPreview()" placeholder="0.00" required="" step="0.5" type="number"/>
+<span class="absolute left-3 top-2 text-on-surface-variant font-label-sm">ج.م</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-bold">سعر البيع (قطاعي) *</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest pr-3 pl-10 py-2 rounded-lg font-code-mono text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary text-left" id="f-price" min="0" oninput="calcMarginPreview()" placeholder="0.00" required="" step="0.5" type="number"/>
+<span class="absolute left-3 top-2 text-on-surface-variant font-label-sm">ج.م</span>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">هامش الربح المتوقع</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-sm text-headline-sm text-on-tertiary-container font-bold" id="f-margin-val">0.00</span>
+<span class="font-label-sm text-label-sm text-on-tertiary-container">ج.م</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mr-1" id="f-margin-percent">(0%)</span>
+</div>
+</div>
+</div>
+<!-- Inventory Stock & Low Threshold Alert -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-on-surface font-bold">الكمية المستلمة في المحل *</label>
+<input class="w-full bg-surface-container-low focus:bg-surface-container-lowest px-3 py-2.5 rounded-xl font-code-mono text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="f-qty" min="0" required="" type="number" value="1"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-on-surface font-bold">حد إعادة الطلب (تنبيه النقص)</label>
+<input class="w-full bg-surface-container-low focus:bg-surface-container-lowest px-3 py-2.5 rounded-xl font-code-mono text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="f-min" min="1" type="number" value="3"/>
+</div>
+</div>
+<!-- Modal Action Footer Buttons -->
+<div class="pt-space-md mt-2 flex items-center justify-between">
+<button class="px-space-lg py-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg transition-colors" onclick="closeProductModal()" type="button">
+            إلغاء التراجع
+          </button>
+<button class="px-space-xl py-2.5 rounded-xl bg-secondary hover:bg-secondary-container text-on-secondary font-headline-sm text-headline-sm flex items-center gap-2 shadow-md active:scale-95 transition-all" type="submit">
+<span class="material-symbols-outlined text-[20px]">save</span>
+<span id="modal-submit-label">حفظ وإدراج بالمخزن</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- DELETE CONFIRMATION DIALOG -->
+<div class="fixed inset-0 z-50 bg-[#0b1c30]/60 backdrop-blur-sm hidden flex items-center justify-center p-4" id="delete-modal">
+<div class="bg-surface-container-lowest rounded-2xl shadow-xl w-full max-w-md p-space-lg flex flex-col text-center items-center">
+<div class="w-14 h-14 rounded-full bg-error-container text-error flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[32px]">delete_forever</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">تأكيد حذف الصنف من المخزن</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb- space-lg" id="delete-item-name">هل أنت متأكد من حذف هذا الصنف بالكامل؟ لا يمكن التراجع عن هذه العملية.</p>
+<div class="flex items-center gap-space-md w-full justify-center">
+<button class="flex-1 py-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg transition-colors" onclick="closeDeleteModal()" type="button">
+          إلغاء
+        </button>
+<button class="flex-1 py-2.5 rounded-xl bg-error hover:bg-on-error-container text-on-error font-headline-sm text-headline-sm transition-all" onclick="executeDeleteProduct()" type="button">
+          حذف نهائي
+        </button>
+</div>
+</div>
+</div>
+<!-- THERMAL BARCODE LABEL PRINT PREVIEW MODAL -->
+<div class="fixed inset-0 z-50 bg-[#0b1c30]/60 backdrop-blur-sm hidden flex items-center justify-center p-4" id="print-label-modal">
+<div class="bg-surface-container-lowest rounded-2xl shadow-xl w-full max-w-sm p-space-lg flex flex-col items-center text-center">
+<div class="w-full flex items-center justify-between pb-space-sm mb-space-sm bg-surface-container-low px-3 py-2 rounded-lg">
+<span class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[20px]">print</span>
+          معاينة ملصق الباركود الحراري
+        </span>
+<button class="text-on-surface-variant hover:text-on-surface" onclick="closePrintModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Thermal Sticker Mockup -->
+<div class="w-64 p-3 bg-white text-black rounded shadow border border-dashed border-gray-300 flex flex-col items-center my-3" id="printable-sticker">
+<span class="font-label-sm text-label-sm font-bold truncate max-w-full">سنترال بلس للاتصالات</span>
+<span class="font-headline-sm text-headline-sm font-extrabold truncate max-w-full my-0.5" id="print-p-name">اسم الشاحن</span>
+<!-- SVG 1D Barcode Pattern Simulation -->
+<svg class="w-52 h-12 my-1" viewbox="0 0 200 45">
+<rect fill="#000" height="45" width="4" x="0" y="0"></rect>
+<rect fill="#000" height="45" width="2" x="6" y="0"></rect>
+<rect fill="#000" height="45" width="6" x="12" y="0"></rect>
+<rect fill="#000" height="45" width="2" x="22" y="0"></rect>
+<rect fill="#000" height="45" width="8" x="28" y="0"></rect>
+<rect fill="#000" height="45" width="4" x="40" y="0"></rect>
+<rect fill="#000" height="45" width="2" x="48" y="0"></rect>
+<rect fill="#000" height="45" width="6" x="54" y="0"></rect>
+<rect fill="#000" height="45" width="4" x="64" y="0"></rect>
+<rect fill="#000" height="45" width="8" x="72" y="0"></rect>
+<rect fill="#000" height="45" width="2" x="84" y="0"></rect>
+<rect fill="#000" height="45" width="6" x="90" y="0"></rect>
+<rect fill="#000" height="45" width="4" x="100" y="0"></rect>
+<rect fill="#000" height="45" width="6" x="108" y="0"></rect>
+<rect fill="#000" height="45" width="2" x="118" y="0"></rect>
+<rect fill="#000" height="45" width="8" x="124" y="0"></rect>
+<rect fill="#000" height="45" width="4" x="136" y="0"></rect>
+<rect fill="#000" height="45" width="6" x="144" y="0"></rect>
+<rect fill="#000" height="45" width="2" x="154" y="0"></rect>
+<rect fill="#000" height="45" width="8" x="160" y="0"></rect>
+<rect fill="#000" height="45" width="4" x="172" y="0"></rect>
+<rect fill="#000" height="45" width="6" x="180" y="0"></rect>
+<rect fill="#000" height="45" width="4" x="190" y="0"></rect>
+</svg>
+<span class="font-code-mono text-label-md tracking-widest font-bold" id="print-p-barcode">622000000000</span>
+<div class="w-full flex items-center justify-between mt-1 px-1 border-t border-black/20 pt-1">
+<span class="text-xs">السعر للجمهور:</span>
+<span class="text-sm font-black" id="print-p-price">0.00 ج.م</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full mt-space-sm">
+<button class="flex-1 py-2.5 rounded-xl bg-secondary text-on-secondary font-headline-sm text-headline-sm flex items-center justify-center gap-1 shadow-sm" onclick="window.print()" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+<span>طباعة فورية (USB-01)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- TOAST NOTIFICATION BADGE -->
+<div class="fixed bottom-14 left-1/2 -translate-x-1/2 z-50 bg-inverse-surface text-inverse-on-surface px-space-lg py-space-xs rounded-full shadow-lg flex items-center gap-2 transform transition-all duration-300 opacity-0 pointer-events-none translate-y-3" id="toast-notify">
+<span class="material-symbols-outlined text-secondary text-[20px]" id="toast-icon">check_circle</span>
+<span class="font-label-lg text-label-lg" id="toast-msg">تمت العملية بنجاح</span>
+</div>
+</div>
+<script>
+  // Primary In-Memory Inventory Data Store (Initially 0 to satisfy strict zero start condition)
+  let inventory = [];
+  let currentFilter = 'all';
+  let searchQuery = '';
+  let pendingDeleteId = null;
+
+  const categoryNames = {
+    complete: "شاحن كامل (Complete Charger)",
+    adapter: "رأس شاحن (Charger Adapter/Head)",
+    typec: "وصلة شحن عريضة (Type-C Cable)",
+    micro: "وصلة شحن عادية (Micro-USB Cable)",
+    pin: "وصلة شحن رفيعة (Thin/Pin Cable)"
+  };
+
+  const categoryBadgeColors = {
+    complete: "bg-surface-container-high text-on-surface",
+    adapter: "bg-secondary-fixed text-on-secondary-fixed",
+    typec: "bg-surface-container text-secondary",
+    micro: "bg-surface-container-low text-on-surface-variant",
+    pin: "bg-primary-fixed text-on-primary-fixed"
+  };
+
+  function updateUI() {
+    renderTable();
+    updateStatsAndPills();
+  }
+
+  function renderTable() {
+    const tbody = document.getElementById('inventory-tbody');
+    const emptyState = document.getElementById('table-empty-state');
+    const footerPagination = document.getElementById('table-footer-pagination');
+    const tableHeaderCount = document.getElementById('table-showing-count');
+
+    // Filter Items
+    let filtered = inventory.filter(item => {
+      const matchesCat = currentFilter === 'all' || item.category === currentFilter;
+      const q = searchQuery.toLowerCase().trim();
+      const matchesSearch = !q || item.name.toLowerCase().includes(q) || item.barcode.toLowerCase().includes(q);
+      return matchesCat && matchesSearch;
+    });
+
+    tbody.innerHTML = '';
+
+    if (filtered.length === 0) {
+      emptyState.classList.remove('hidden');
+      footerPagination.classList.add('hidden');
+      footerPagination.classList.remove('flex');
+    } else {
+      emptyState.classList.add('hidden');
+      footerPagination.classList.remove('hidden');
+      footerPagination.classList.add('flex');
+      tableHeaderCount.textContent = `عرض ${filtered.length} من إجمالي ${inventory.length} صنف بالمخزن`;
+
+      filtered.forEach(item => {
+        const margin = (item.sellPrice - item.costPrice);
+        const marginPercent = item.costPrice > 0 ? ((margin / item.costPrice) * 100).toFixed(0) : '100';
+        const isLow = item.quantity <= item.minThreshold;
+        const isOut = item.quantity === 0;
+
+        const row = document.createElement('tr');
+        row.className = "hover:bg-surface-container-low/50 transition-colors border-b border-surface-container-low";
+        row.innerHTML = `
+          <td class="py-3 px-space-md">
+            <div class="flex items-center gap-1.5">
+              <span class="font-code-mono text-label-md text-on-surface font-semibold bg-surface-container-low px-2 py-0.5 rounded">${item.barcode}</span>
+              <button type="button" onclick="copyBarcode('${item.barcode}')" title="نسخ الباركود" class="text-on-surface-variant hover:text-secondary p-1 rounded">
+                <span class="material-symbols-outlined text-[16px]">content_copy</span>
+              </button>
+            </div>
+          </td>
+          <td class="py-3 px-space-md">
+            <div class="flex flex-col">
+              <span class="font-headline-sm text-headline-sm text-on-surface">${escapeHtml(item.name)}</span>
+              ${item.spec ? `<span class="font-body-sm text-body-sm text-on-surface-variant">${escapeHtml(item.spec)}</span>` : ''}
+            </div>
+          </td>
+          <td class="py-3 px-space-md">
+            <span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full inline-block ${categoryBadgeColors[item.category] || 'bg-surface-container text-on-surface'}">
+              ${categoryNames[item.category] || item.category}
+            </span>
+          </td>
+          <td class="py-3 px-space-md font-code-mono text-label-md text-on-surface">
+            ${item.costPrice.toFixed(2)} <span class="text-label-sm text-on-surface-variant">ج.م</span>
+          </td>
+          <td class="py-3 px-space-md font-code-mono text-label-md font-bold text-secondary">
+            ${item.sellPrice.toFixed(2)} <span class="text-label-sm text-on-surface-variant">ج.م</span>
+          </td>
+          <td class="py-3 px-space-md">
+            <div class="flex items-baseline gap-1 font-code-mono text-label-md ${margin >= 0 ? 'text-on-tertiary-container' : 'text-error'}">
+              <span>+${margin.toFixed(2)}</span>
+              <span class="text-label-sm text-on-surface-variant">(${marginPercent}%)</span>
+            </div>
+          </td>
+          <td class="py-3 px-space-md text-center">
+            <div class="inline-flex items-center gap-2">
+              <button type="button" onclick="adjustQty('${item.id}', -1)" class="w-6 h-6 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center font-bold text-on-surface text-sm">-</button>
+              <span class="font-headline-sm text-headline-sm text-on-surface font-code-mono w-8 text-center">${item.quantity}</span>
+              <button type="button" onclick="adjustQty('${item.id}', 1)" class="w-6 h-6 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center font-bold text-on-surface text-sm">+</button>
+            </div>
+          </td>
+          <td class="py-3 px-space-md text-center">
+            ${isOut ? `
+              <span class="bg-error-container text-error px-2 py-0.5 rounded-full font-label-sm text-label-sm font-bold flex items-center justify-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-error"></span> نفذت الكمية
+              </span>
+            ` : isLow ? `
+              <span class="bg-surface-container-highest text-error px-2 py-0.5 rounded-full font-label-sm text-label-sm font-bold flex items-center justify-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-error"></span> حد النقص (${item.quantity}/${item.minThreshold})
+              </span>
+            ` : `
+              <span class="bg-surface-container text-on-tertiary-container px-2 py-0.5 rounded-full font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span> متوفر ومثالي
+              </span>
+            `}
+          </td>
+          <td class="py-3 px-space-md text-center">
+            <div class="flex items-center justify-center gap-1">
+              <button type="button" onclick="printBarcodeItem('${item.id}')" title="طباعة ستيكر حراري" class="p-1.5 rounded-lg hover:bg-surface-container-high text-on-surface-variant hover:text-secondary transition-colors">
+                <span class="material-symbols-outlined text-[18px]">print</span>
+              </button>
+              <button type="button" onclick="openEditModal('${item.id}')" title="تعديل الصنف" class="p-1.5 rounded-lg hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors">
+                <span class="material-symbols-outlined text-[18px]">edit</span>
+              </button>
+              <button type="button" onclick="confirmDelete('${item.id}')" title="حذف الصنف" class="p-1.5 rounded-lg hover:bg-error-container text-on-surface-variant hover:text-error transition-colors">
+                <span class="material-symbols-outlined text-[18px]">delete</span>
+              </button>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+  }
+
+  function updateStatsAndPills() {
+    let totalQty = 0;
+    let totalCostVal = 0;
+    let totalRetailVal = 0;
+    let lowStockCount = 0;
+
+    let counts = { all: inventory.length, complete: 0, adapter: 0, typec: 0, micro: 0, pin: 0 };
+
+    inventory.forEach(item => {
+      totalQty += Number(item.quantity);
+      totalCostVal += Number(item.costPrice) * Number(item.quantity);
+      totalRetailVal += Number(item.sellPrice) * Number(item.quantity);
+      if (item.quantity <= item.minThreshold) {
+        lowStockCount++;
+      }
+      if (counts[item.category] !== undefined) {
+        counts[item.category]++;
+      }
+    });
+
+    document.getElementById('stat-total-qty').textContent = totalQty;
+    document.getElementById('stat-cost-val').textContent = totalCostVal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    document.getElementById('stat-retail-val').textContent = totalRetailVal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    document.getElementById('stat-low-stock').textContent = lowStockCount;
+
+    // Update pill counters
+    document.getElementById('count-all').textContent = counts.all;
+    document.getElementById('count-complete').textContent = counts.complete;
+    document.getElementById('count-adapter').textContent = counts.adapter;
+    document.getElementById('count-typec').textContent = counts.typec;
+    document.getElementById('count-micro').textContent = counts.micro;
+    document.getElementById('count-pin').textContent = counts.pin;
+  }
+
+  // Category Filtering
+  function filterCategory(cat, btn) {
+    currentFilter = cat;
+    document.querySelectorAll('.category-pill').forEach(el => {
+      el.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm', 'font-bold');
+      el.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+      const counter = el.querySelector('span:last-child');
+      if (counter) {
+        counter.className = "bg-surface-container text-on-surface font-code-mono text-label-sm px-1.5 py-0.5 rounded-full";
+      }
+    });
+
+    btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm', 'font-bold');
+    btn.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+    const activeCounter = btn.querySelector('span:last-child');
+    if (activeCounter) {
+      activeCounter.className = "bg-white/20 text-on-primary font-code-mono text-label-sm px-1.5 py-0.5 rounded-full";
+    }
+
+    const indicator = document.getElementById('active-filter-indicator');
+    if (cat === 'all') {
+      indicator.textContent = 'كل الأصناف';
+    } else {
+      indicator.textContent = categoryNames[cat] || cat;
+    }
+
+    renderTable();
+  }
+
+  function handleSearchQuery(val) {
+    searchQuery = val;
+    renderTable();
+  }
+
+  // Rapid Barcode Scanner Handling
+  function handleLiveScanKeydown(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const code = e.target.value.trim();
+      if (!code) return;
+
+      const existing = inventory.find(i => i.barcode === code);
+      if (existing) {
+        existing.quantity += 1;
+        showToast(`تم زيادة رصيد: ${existing.name} (+1 قطعة)`, "check_circle");
+        updateUI();
+      } else {
+        // Open modal pre-filled with this barcode for prompt registration
+        openAddModal();
+        document.getElementById('f-barcode').value = code;
+        showToast("باركود جديد! أكمل حفظ تفاصيل الصنف", "info");
+      }
+      e.target.value = '';
+    }
+  }
+
+  // Keyboard shortcut listener (Insert to Add, F2 to focus scanner)
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Insert') {
+      e.preventDefault();
+      openAddModal();
+    } else if (e.key === 'F2') {
+      e.preventDefault();
+      document.getElementById('barcode-live-input').focus();
+    }
+  });
+
+  // Modal Handlers
+  function openAddModal() {
+    document.getElementById('modal-title').textContent = "إضافة صنف جديد (شاحن / وصلة)";
+    document.getElementById('modal-header-icon').textContent = "add_shopping_cart";
+    document.getElementById('modal-submit-label').textContent = "حفظ وإدراج بالمخزن";
+    document.getElementById('edit-product-id').value = "";
+    document.getElementById('product-form').reset();
+    document.getElementById('f-margin-val').textContent = "0.00";
+    document.getElementById('f-margin-percent').textContent = "(0%)";
+    if (currentFilter !== 'all') {
+      document.getElementById('f-category').value = currentFilter;
+    }
+    document.getElementById('product-modal').classList.remove('hidden');
+    setTimeout(() => document.getElementById('f-barcode').focus(), 100);
+  }
+
+  function openEditModal(id) {
+    const item = inventory.find(i => i.id === id);
+    if (!item) return;
+
+    document.getElementById('modal-title').textContent = "تعديل بيانات الصنف";
+    document.getElementById('modal-header-icon').textContent = "edit_note";
+    document.getElementById('modal-submit-label').textContent = "تحديث التعديلات";
+    document.getElementById('edit-product-id').value = item.id;
+
+    document.getElementById('f-barcode').value = item.barcode;
+    document.getElementById('f-name').value = item.name;
+    document.getElementById('f-category').value = item.category;
+    document.getElementById('f-spec').value = item.spec || '';
+    document.getElementById('f-cost').value = item.costPrice;
+    document.getElementById('f-price').value = item.sellPrice;
+    document.getElementById('f-qty').value = item.quantity;
+    document.getElementById('f-min').value = item.minThreshold;
+
+    calcMarginPreview();
+    document.getElementById('product-modal').classList.remove('hidden');
+  }
+
+  function closeProductModal() {
+    document.getElementById('product-modal').classList.add('hidden');
+  }
+
+  function generateBarcode() {
+    // Generate a typical 12-digit telecom retail EAN-13 formatted sequence
+    const prefix = "622";
+    const rand = Math.floor(100000000 + Math.random() * 900000000);
+    document.getElementById('f-barcode').value = `${prefix}${rand}`;
+  }
+
+  function calcMarginPreview() {
+    const cost = parseFloat(document.getElementById('f-cost').value) || 0;
+    const price = parseFloat(document.getElementById('f-price').value) || 0;
+    const margin = price - cost;
+    const percent = cost > 0 ? ((margin / cost) * 100).toFixed(0) : 0;
+
+    const elMargin = document.getElementById('f-margin-val');
+    const elPercent = document.getElementById('f-margin-percent');
+
+    elMargin.textContent = margin.toFixed(2);
+    elPercent.textContent = `(${percent}%)`;
+
+    if (margin < 0) {
+      elMargin.className = "font-headline-sm text-headline-sm text-error font-bold";
+    } else {
+      elMargin.className = "font-headline-sm text-headline-sm text-on-tertiary-container font-bold";
+    }
+  }
+
+  function saveProduct(e) {
+    e.preventDefault();
+    const editId = document.getElementById('edit-product-id').value;
+    const barcode = document.getElementById('f-barcode').value.trim();
+    const name = document.getElementById('f-name').value.trim();
+    const category = document.getElementById('f-category').value;
+    const spec = document.getElementById('f-spec').value.trim();
+    const costPrice = parseFloat(document.getElementById('f-cost').value) || 0;
+    const sellPrice = parseFloat(document.getElementById('f-price').value) || 0;
+    const quantity = parseInt(document.getElementById('f-qty').value) || 0;
+    const minThreshold = parseInt(document.getElementById('f-min').value) || 2;
+
+    // Check Barcode uniqueness if adding
+    if (!editId) {
+      const dup = inventory.find(i => i.barcode === barcode);
+      if (dup) {
+        showToast("تنبيه: هذا الباركود مسجل مسبقاً لصنف آخر!", "warning");
+        return;
+      }
+      const newItem = {
+        id: 'CHG-' + Date.now(),
+        barcode,
+        name,
+        category,
+        spec,
+        costPrice,
+        sellPrice,
+        quantity,
+        minThreshold
+      };
+      inventory.unshift(newItem);
+      showToast("تمت إضافة الصنف بنجاح إلى جدول المخزون", "check_circle");
+    } else {
+      const idx = inventory.findIndex(i => i.id === editId);
+      if (idx !== -1) {
+        inventory[idx] = {
+          ...inventory[idx],
+          barcode,
+          name,
+          category,
+          spec,
+          costPrice,
+          sellPrice,
+          quantity,
+          minThreshold
+        };
+        showToast("تم تحديث بيانات الصنف بنجاح", "check_circle");
+      }
+    }
+
+    closeProductModal();
+    updateUI();
+  }
+
+  // Adjust stock in place (+ / -)
+  function adjustQty(id, delta) {
+    const item = inventory.find(i => i.id === id);
+    if (!item) return;
+    const newQty = item.quantity + delta;
+    if (newQty < 0) return;
+    item.quantity = newQty;
+    updateUI();
+  }
+
+  // Delete product flow
+  function confirmDelete(id) {
+    const item = inventory.find(i => i.id === id);
+    if (!item) return;
+    pendingDeleteId = id;
+    document.getElementById('delete-item-name').textContent = `هل أنت متأكد من حذف (${item.name}) وإزالته نهائياً؟`;
+    document.getElementById('delete-modal').classList.remove('hidden');
+  }
+
+  function closeDeleteModal() {
+    pendingDeleteId = null;
+    document.getElementById('delete-modal').classList.add('hidden');
+  }
+
+  function executeDeleteProduct() {
+    if (!pendingDeleteId) return;
+    inventory = inventory.filter(i => i.id !== pendingDeleteId);
+    closeDeleteModal();
+    updateUI();
+    showToast("تم حذف الصنف من المخزن", "delete");
+  }
+
+  // Thermal print modal
+  function printBarcodeItem(id) {
+    const item = inventory.find(i => i.id === id);
+    if (!item) return;
+
+    document.getElementById('print-p-name').textContent = item.name;
+    document.getElementById('print-p-barcode').textContent = item.barcode;
+    document.getElementById('print-p-price').textContent = `${item.sellPrice.toFixed(2)} ج.م`;
+    document.getElementById('print-label-modal').classList.remove('hidden');
+  }
+
+  function closePrintModal() {
+    document.getElementById('print-label-modal').classList.add('hidden');
+  }
+
+  function openPrintBulkLabelsModal() {
+    if (inventory.length === 0) {
+      showToast("المخزن فارغ حالياً! أضف أصناف أولاً", "info");
+      return;
+    }
+    printBarcodeItem(inventory[0].id);
+  }
+
+  function copyBarcode(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast(`تم نسخ الباركود: ${text}`, "content_copy");
+    });
+  }
+
+  function exportDataNotice() {
+    if (inventory.length === 0) {
+      showToast("لا توجد بيانات بالمخزن لتصديرها", "info");
+      return;
+    }
+    showToast("جاري تجهيز وتصدير ملف Excel لمخزن الشواحن...", "download");
+  }
+
+  // Toast Notification helper
+  let toastTimer = null;
+  function showToast(msg, icon = "check_circle") {
+    const toast = document.getElementById('toast-notify');
+    const toastMsg = document.getElementById('toast-msg');
+    const toastIcon = document.getElementById('toast-icon');
+
+    toastMsg.textContent = msg;
+    toastIcon.textContent = icon;
+
+    toast.classList.remove('opacity-0', 'translate-y-3', 'pointer-events-none');
+    toast.classList.add('opacity-100', 'translate-y-0');
+
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('opacity-100', 'translate-y-0');
+      toast.classList.add('opacity-0', 'translate-y-3', 'pointer-events-none');
+    }, 2800);
+  }
+
+  // Seed sample initial shipment for tester convenience
+  function seedSampleDataset() {
+    inventory = [
+      {
+        id: "CHG-101",
+        barcode: "622100492811",
+        name: "شاحن كامل Joyroom 30W سريع PD+QC",
+        category: "complete",
+        spec: "30W Fast Charge Type-C مع كابل مضفر",
+        costPrice: 195.00,
+        sellPrice: 280.00,
+        quantity: 14,
+        minThreshold: 4
+      },
+      {
+        id: "CHG-102",
+        barcode: "622100492822",
+        name: "رأس شاحن Anker Nano Pro 20W أصلي",
+        category: "adapter",
+        spec: "منفذ Type-C منفصل يدعم الآيفون",
+        costPrice: 260.00,
+        sellPrice: 380.00,
+        quantity: 8,
+        minThreshold: 3
+      },
+      {
+        id: "CHG-103",
+        barcode: "622100492833",
+        name: "وصلة Type-C to Type-C قماش 65W من Baseus",
+        category: "typec",
+        spec: "طول 1 متر قماش مضاد للقطع فائق السرعة",
+        costPrice: 75.00,
+        sellPrice: 130.00,
+        quantity: 22,
+        minThreshold: 5
+      },
+      {
+        id: "CHG-104",
+        barcode: "622100492844",
+        name: "وصلة شحن عادية Micro-USB ماركة LDNIO",
+        category: "micro",
+        spec: "2.4A شحن سريع سلك سيليكون مرن",
+        costPrice: 35.00,
+        sellPrice: 65.00,
+        quantity: 2,
+        minThreshold: 5
+      },
+      {
+        id: "CHG-105",
+        barcode: "622100492855",
+        name: "وصلة شحن رفيعة نوكيا قديم (Small Pin / إبرة)",
+        category: "pin",
+        spec: "سلك USB إلى مسمار نوكيا رفيع 2 مم",
+        costPrice: 18.00,
+        sellPrice: 35.00,
+        quantity: 6,
+        minThreshold: 2
+      }
+    ];
+
+    updateUI();
+    showToast("تم تحميل شحنة أولية نموذجية للمخزن!", "dataset");
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>'"]/g, 
+      tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+    );
+  }
+
+  // Initialize strictly at 0
+  updateUI();
+</script></main><footer class="w-full h-10 bg-surface-container-lowest shadow-[0_-1px_4px_rgba(0,0,0,0.02)] flex items-center justify-between px-gutter-desktop z-30"><div class="flex items-center gap-space-lg text-on-surface-variant font-label-md text-label-md"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">schedule</span><span>بدء الوردية: 09:00 ص (3 س 24 د)</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">print</span><span>طابعة الفواتير الحرارية: جاهزة (USB-01)</span></div></div><div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant"><span class="flex items-center gap-1"><kbd class="bg-surface-container px-1.5 py-0.5 rounded font-code-mono text-on-surface">F3</kbd> بحث مخزني سريع</span><span class="flex items-center gap-1"><kbd class="bg-surface-container px-1.5 py-0.5 rounded font-code-mono text-on-surface">F4</kbd> تحويل محفظة</span><span class="flex items-center gap-1"><kbd class="bg-surface-container px-1.5 py-0.5 rounded font-code-mono text-on-surface">ESC</kbd> تعليق الفاتورة</span></div></footer></div></body></html>

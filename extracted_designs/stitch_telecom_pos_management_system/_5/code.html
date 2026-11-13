@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;family=Tajawal:wght@500;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container": "#e5eeff", "on-primary-fixed": "#0d1c32", "primary-fixed": "#d6e3ff", "on-error": "#ffffff", "primary-fixed-dim": "#b9c7e4", "surface-container-high": "#dce9ff", "surface-container-low": "#eff4ff", "on-tertiary-container": "#009668", "error": "#ba1a1a", "inverse-on-surface": "#eaf1ff", "on-background": "#0b1c30", "secondary-fixed": "#dbe1ff", "tertiary-container": "#002113", "on-secondary-fixed": "#00174b", "outline-variant": "#c5c6cd", "on-primary": "#ffffff", "surface": "#f8f9ff", "outline": "#75777e", "on-error-container": "#93000a", "on-secondary-fixed-variant": "#003ea8", "inverse-surface": "#213145", "on-tertiary-fixed-variant": "#005236", "primary-container": "#0d1c32", "surface-container-lowest": "#ffffff", "on-tertiary": "#ffffff", "on-primary-fixed-variant": "#39475f", "tertiary": "#000000", "error-container": "#ffdad6", "on-surface-variant": "#44474d", "on-surface": "#0b1c30", "secondary-fixed-dim": "#b4c5ff", "on-primary-container": "#76849f", "on-secondary": "#ffffff", "tertiary-fixed-dim": "#4edea3", "on-secondary-container": "#fefcff", "surface-tint": "#515f78", "primary": "#000000", "surface-variant": "#d3e4fe", "inverse-primary": "#b9c7e4", "tertiary-fixed": "#6ffbbe", "on-tertiary-fixed": "#002113", "secondary-container": "#316bf3", "secondary": "#0051d5", "surface-bright": "#f8f9ff", "surface-dim": "#cbdbf5", "surface-container-highest": "#d3e4fe", "background": "#f8f9ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2rem", "gutter-desktop": "1.5rem", "gutter": "1rem", "margin": "1rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem", "margin-desktop": "2rem" }, "fontFamily": { "headline-sm": [ "Cairo" ], "label-lg": [ "Tajawal" ], "body-sm": [ "Cairo" ], "price-display": [ "Cairo" ], "body-lg": [ "Cairo" ], "headline-lg": [ "Cairo" ], "body-md": [ "Cairo" ], "headline-md": [ "Cairo" ], "label-sm": [ "Tajawal" ], "headline-lg-mobile": [ "Cairo" ], "headline-xl-mobile": [ "Cairo" ], "label-md": [ "Tajawal" ], "code-mono": [ "JetBrains Mono" ], "headline-xl": [ "Cairo" ] }, "fontSize": { "headline-sm": [ "16px", { "lineHeight": "24px", "fontWeight": "600" } ], "label-lg": [ "14px", { "lineHeight": "20px", "fontWeight": "500" } ], "body-sm": [ "12px", { "lineHeight": "18px", "fontWeight": "400" } ], "price-display": [ "32px", { "lineHeight": "40px", "fontWeight": "800" } ], "body-lg": [ "16px", { "lineHeight": "26px", "fontWeight": "400" } ], "headline-lg": [ "28px", { "lineHeight": "38px", "fontWeight": "700" } ], "body-md": [ "14px", { "lineHeight": "22px", "fontWeight": "400" } ], "headline-md": [ "20px", { "lineHeight": "28px", "fontWeight": "600" } ], "label-sm": [ "11px", { "lineHeight": "14px", "fontWeight": "700" } ], "headline-lg-mobile": [ "22px", { "lineHeight": "30px", "fontWeight": "700" } ], "headline-xl-mobile": [ "26px", { "lineHeight": "36px", "fontWeight": "700" } ], "label-md": [ "12px", { "lineHeight": "16px", "fontWeight": "500" } ], "code-mono": [ "13px", { "lineHeight": "18px", "fontWeight": "500" } ], "headline-xl": [ "36px", { "lineHeight": "48px", "fontWeight": "700" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased select-none"><aside class="fixed right-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-gutter flex items-center gap-space-sm bg-surface-container-lowest"><img alt="Telecom &amp; Mobile POS Hub Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBUT1stGZS0wGgLpVC-SwHtTvVGYjjBEci41zHpyqxxXGu1l5CP4lI7MJk4sHlmQ0z4Ea8-WC4Prx5hFZpwFBpi9Gm0j9h1z2sfylf1rJL9XSwEey0Qs2pyNrkNXeuKl4Mka4vvvLCdiBUALNcKh10h06Fi8UezWQbaDvz7YArUl6n7Yg1XAZg_dhM9XqTMONX4YAU_h3ZpgQmyiQXRFoGXeEsVD7cgs3wdnjs5tBNJ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface">سنترال بلس</span><span class="font-label-sm text-label-sm text-on-surface-variant">POS &amp; Telecom System</span></div></div><div class="p-space-sm"><div class="bg-surface-container px-space-md py-space-sm rounded-lg flex items-center justify-between mb-space-sm"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-[20px]">storefront</span><span class="font-label-md text-label-md text-on-surface">الفرع الرئيسي (1)</span></div><span class="bg-surface-container-lowest text-secondary font-code-mono text-label-sm px-space-xs py-0.5 rounded">ONLINE</span></div></div><nav class="flex flex-col gap-1 px-space-sm" data-active-classes="bg-secondary text-on-secondary font-bold shadow-[0_4px_6px_-1px_rgba(10,25,47,0.07)]"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard-overview" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-label-lg text-label-lg">لوحة الإدارة والمؤشرات</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="vodafone-cash-wallets" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">account_balance_wallet</span><span class="font-label-lg text-label-lg">محافظ فودافون كاش</span></div><span class="bg-surface-container-highest text-on-surface font-code-mono text-label-sm px-space-xs py-0.5 rounded-full">18 خط</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="chargers-cables" href="#"><span class="material-symbols-outlined text-[20px]">cable</span><span class="font-label-lg text-label-lg">الشواحن والوصلات</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="phones-sales-inventory" href="#"><span class="material-symbols-outlined text-[20px]">smartphone</span><span class="font-label-lg text-label-lg">مبيعات التليفونات (IMEI)</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="headphones-audio" href="#"><span class="material-symbols-outlined text-[20px]">headphones</span><span class="font-label-lg text-label-lg">قسم السماعات والصوتيات</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-all bg-secondary text-on-secondary font-bold shadow-[0_4px_6px_-1px_rgba(10,25,47,0.07)]" data-path="speakers-sound" href="#"><span class="material-symbols-outlined text-[20px]">speaker</span><span class="font-label-lg text-label-lg">قسم الصبات والمكبرات</span></a></nav></div><div class="p-space-sm flex flex-col gap-space-xs bg-surface-container-lowest mx-space-sm mb-space-sm rounded-xl"><div class="flex items-center justify-between"><span class="font-label-md text-label-md text-on-surface-variant">درج الكاشير الحالي</span><span class="font-code-mono text-label-md text-on-tertiary-container font-bold">نشط</span></div><div class="flex items-baseline justify-between"><span class="font-headline-sm text-headline-sm text-on-surface">0.00</span><span class="font-label-md text-label-md text-on-surface-variant">ج.م</span></div><div class="pt-space-xs flex items-center justify-between text-on-surface-variant"><span class="font-label-sm text-label-sm">الوردية: صباحية #402</span><button class="hover:text-secondary flex items-center" type="button"><span class="material-symbols-outlined text-[16px]">lock_clock</span></button></div></div></aside><div class="pr-72 min-h-screen flex flex-col justify-between"><header class="fixed top-0 right-72 left-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-desktop"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-space-xs rounded-full shadow-[0_1px_3px_0_rgba(10,25,47,0.04)]"><span class="w-2.5 h-2.5 rounded-full bg-on-tertiary-container animate-pulse"></span><span class="font-label-md text-label-md text-on-surface">قارئ الباركود متصل جاهز للمسح</span><span class="material-symbols-outlined text-on-tertiary-container text-[18px]">qr_code_scanner</span></div><button class="bg-secondary-container hover:bg-secondary text-on-secondary px-space-md py-space-xs rounded-lg flex items-center gap-space-xs transition-all shadow-[0_4px_6px_-1px_rgba(10,25,47,0.07)]" type="button"><span class="material-symbols-outlined text-[18px]">bolt</span><span class="font-headline-sm text-headline-sm">نقطة بيع سريعة (POS)</span><kbd class="bg-surface-container-lowest/20 font-code-mono text-label-sm px-1.5 py-0.5 rounded text-on-secondary">F2</kbd></button><button class="bg-surface-container-high hover:bg-surface-container text-on-surface px-space-md py-space-xs rounded-lg flex items-center gap-space-xs transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">add_circle</span><span class="font-label-lg text-label-lg">صنف جديد</span><kbd class="bg-surface-container-lowest font-code-mono text-label-sm px-1.5 py-0.5 rounded text-on-surface-variant">F1</kbd></button></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container-low px-space-md py-space-xs rounded-lg"><span class="font-label-md text-label-md text-on-surface-variant">عهدة الكاش:</span><span class="font-headline-sm text-headline-sm text-secondary">0.00 ج.م</span></div><button class="w-9 h-9 rounded-lg bg-surface-container-low hover:bg-surface-container flex items-center justify-center text-on-surface relative transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 left-2 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-space-xs pr-space-xs"><div class="flex flex-col text-left"><span class="font-label-lg text-label-lg text-on-surface">أحمد الكاشير</span><span class="font-label-sm text-label-sm text-on-surface-variant">مدير وردية</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 pb-10 px-gutter-desktop bg-surface flex-1"><div class="flex flex-col w-full">
+<!-- Barcode & Operational Command Strip -->
+<section class="w-full mb-space-lg">
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-md flex flex-wrap items-center justify-between gap-space-md">
+<!-- Scanner Input Box -->
+<div class="flex items-center gap-space-sm flex-1 min-w-[320px]">
+<div class="relative flex-1">
+<div class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-secondary">
+<span class="material-symbols-outlined text-[22px]">barcode_scanner</span>
+</div>
+<input autofocus="" class="w-full pr-11 pl-28 py-2.5 bg-surface-container-low rounded-lg font-code-mono text-body-md text-on-surface placeholder:text-on-surface-variant/60 focus:bg-surface-container-lowest focus:shadow-[0_0_0_3px_rgba(49,107,243,0.2)] focus:outline-none transition-all" id="barcodeScannerInput" placeholder="امسح باركود الصب فوراً أو اضغط F3 للبحث السريع بالاسم أو الموديل..." type="text"/>
+<div class="absolute inset-y-0 left-2.5 flex items-center gap-1.5 pointer-events-none">
+<span class="bg-surface-container-high text-on-surface-variant font-code-mono text-label-sm px-1.5 py-0.5 rounded">AUTO-SCAN</span>
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container animate-ping"></span>
+</div>
+</div>
+</div>
+<!-- Live Aggregate KPI Badges & Quick Action -->
+<div class="flex items-center gap-space-md">
+<!-- Metric Strip -->
+<div class="hidden xl:flex items-center gap-space-sm bg-surface-container-low px-space-md py-2 rounded-lg">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-secondary">inventory_2</span>
+<span class="font-label-md text-label-md">إجمالي الصبات:</span>
+<span class="font-code-mono font-headline-sm text-headline-sm text-on-surface" id="kpiTotalCount">0</span>
+<span class="font-label-sm text-label-sm">قطعة</span>
+</div>
+<span class="w-1 h-4 bg-outline-variant/40 rounded-full mx-1"></span>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-on-tertiary-container">payments</span>
+<span class="font-label-md text-label-md">إجمالي التكلفة:</span>
+<span class="font-code-mono font-headline-sm text-headline-sm text-on-surface" id="kpiTotalCost">0.00</span>
+<span class="font-label-sm text-label-sm">ج.م</span>
+</div>
+</div>
+<!-- Add Speaker Button -->
+<button class="bg-secondary hover:bg-secondary/90 active:scale-[0.98] text-on-secondary px-space-md py-2.5 rounded-lg flex items-center gap-space-xs font-headline-sm text-headline-sm shadow-md transition-all cursor-pointer" id="btnOpenAddModal" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>+ إضافة صب جديد</span>
+<kbd class="bg-on-secondary/20 font-code-mono text-label-sm px-1.5 py-0.5 rounded mr-1">F1</kbd>
+</button>
+</div>
+</div>
+</section>
+<!-- Categories Pill Switcher -->
+<section class="w-full mb-space-lg">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs p-1 bg-surface-container-low rounded-xl shadow-sm overflow-x-auto max-w-full">
+<!-- Tab 1: Small Speaker (Active Default) -->
+<button class="speaker-tab-btn flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container text-on-primary shadow-sm transition-all text-right cursor-pointer" data-speaker-cat="small" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_down</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm leading-tight">صب صغير (Small Speaker)</span>
+<span class="font-label-sm text-label-sm opacity-80">محمول / بلوتوث كف اليد</span>
+</div>
+<span class="mr-space-xs bg-surface-container-lowest text-on-surface font-code-mono text-label-sm px-2 py-0.5 rounded-full font-bold" id="badgeSmallCount">0</span>
+</button>
+<!-- Tab 2: Medium Speaker -->
+<button class="speaker-tab-btn flex items-center gap-space-xs px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all text-right cursor-pointer" data-speaker-cat="medium" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm leading-tight">صب وسط (Medium Speaker)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">منزلي / ديسك توب وكاريوكي خفيف</span>
+</div>
+<span class="mr-space-xs bg-surface-container text-on-surface-variant font-code-mono text-label-sm px-2 py-0.5 rounded-full" id="badgeMediumCount">0</span>
+</button>
+<!-- Tab 3: Large Speaker -->
+<button class="speaker-tab-btn flex items-center gap-space-xs px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all text-right cursor-pointer" data-speaker-cat="large" type="button">
+<span class="material-symbols-outlined text-[20px]">speaker_group</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm leading-tight">صب كبير (Party / Trolley)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">حفلات / ترولي بميكروفون لاسلكي</span>
+</div>
+<span class="mr-space-xs bg-surface-container text-on-surface-variant font-code-mono text-label-sm px-2 py-0.5 rounded-full" id="badgeLargeCount">0</span>
+</button>
+</div>
+<!-- Quick Section Filters / Sorting -->
+<div class="flex items-center gap-space-xs self-end">
+<div class="flex items-center gap-1 bg-surface-container-lowest px-space-sm py-1.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">filter_list</span>
+<select class="bg-transparent font-label-md text-label-md text-on-surface focus:outline-none cursor-pointer" id="stockFilterSelect">
+<option value="all">كل الحالات المخزنية</option>
+<option value="in_stock">متوفر في المحل</option>
+<option value="low">نواقص (أقل من الحد الأدنى)</option>
+<option value="out">رصيد صفري</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Dynamic Inventory Table Card -->
+<section class="w-full bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col mb-space-xl">
+<!-- Visual Subheader -->
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">speaker</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<h2 class="font-headline-md text-headline-md text-on-surface" id="activeCategoryTitle">قسم: صب صغير (Small Speaker)</h2>
+<span class="bg-secondary-fixed text-on-secondary-fixed font-code-mono text-label-sm px-2 py-0.5 rounded" id="activeCategoryStatusBadge">0 أصناف</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="activeCategoryDesc">سماعات بلوتوث محمولة خفيفة الوزن، صبات جي بي إل ميني، صبات مضيئة صغيرة</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="bg-surface-container-highest hover:bg-surface-container-high text-on-surface px-space-sm py-1.5 rounded-lg font-label-md text-label-md flex items-center gap-1 transition-colors" id="btnPrintShelfLabels" type="button">
+<span class="material-symbols-outlined text-[16px]">label</span>
+<span>طباعة باركود الرفوف</span>
+</button>
+</div>
+</div>
+<!-- Data Grid Wrapper -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-right border-collapse">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant font-label-md text-label-md select-none">
+<th class="py-3 px-space-md font-bold">الباركود (Barcode)</th>
+<th class="py-3 px-space-md font-bold">الموديل والماركة</th>
+<th class="py-3 px-space-md font-bold">الحجم والقدرة الصوتية</th>
+<th class="py-3 px-space-md font-bold">سعر الشراء</th>
+<th class="py-3 px-space-md font-bold">سعر البيع للجمهور</th>
+<th class="py-3 px-space-md font-bold">الكمية المتاحة</th>
+<th class="py-3 px-space-md font-bold text-center">حالة النواقص</th>
+<th class="py-3 px-space-md font-bold text-left">الإجراءات</th>
+</tr>
+</thead>
+<tbody id="speakersTableBody">
+<!-- Rows will be dynamically rendered or replaced by Empty State -->
+</tbody>
+</table>
+</div>
+<!-- Bespoke Professional Empty State -->
+<div class="w-full py-16 px-gutter flex flex-col items-center justify-center text-center" id="speakersEmptyState">
+<div class="relative mb-space-lg flex items-center justify-center">
+<!-- Layered Soft Accent Ambient Rings -->
+<div class="w-32 h-32 rounded-full bg-surface-container-high animate-pulse"></div>
+<div class="absolute w-24 h-24 rounded-full bg-surface-container flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-secondary text-[54px]">speaker</span>
+</div>
+<div class="absolute -bottom-1 -right-1 w-9 h-9 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[20px]">queue_music</span>
+</div>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-space-xs" id="emptyCategoryTitle">
+        لا توجد صبات مسجلة في قسم (صب صغير) حتى الآن
+      </h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-space-lg">
+        ابدأ بمسح باركود الصب الجديد بواسطة القارئ المباشر، أو قم بتسجيل المواصفات والقدرة الكهربائية (الوات) والبطارية يدوياً لإضافتها للكتالوج وقائمة البيع.
+      </p>
+<div class="flex flex-wrap items-center justify-center gap-space-md">
+<button class="bg-secondary-container hover:bg-secondary text-on-secondary px-space-xl py-3 rounded-xl font-headline-sm text-headline-sm flex items-center gap-space-xs shadow-md transition-all active:scale-95 cursor-pointer" id="btnEmptyAddSpeaker" type="button">
+<span class="material-symbols-outlined text-[22px]">add_circle</span>
+<span>+ إضافة أول صب صوتي في هذا القسم</span>
+</button>
+<button class="bg-surface-container-high hover:bg-surface-container text-on-surface px-space-lg py-3 rounded-xl font-label-lg text-label-lg flex items-center gap-space-xs transition-all cursor-pointer" id="btnImportPresetTemplate" type="button">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span>تحميل نماذج صبات شائعة (JBL / Tiger / Kisonli)</span>
+</button>
+</div>
+<!-- Quick Guidance Chips -->
+<div class="mt-space-xl pt-space-lg flex flex-wrap items-center justify-center gap-space-md text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 bg-surface-container-low px-space-sm py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px] text-on-tertiary-container">verified</span> دعم طباعة كود الترانزيت
+        </span>
+<span class="flex items-center gap-1 bg-surface-container-low px-space-sm py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px] text-secondary">flash_on</span> دعم القدرة بالـ Watt وسعة الـ mAh
+        </span>
+<span class="flex items-center gap-1 bg-surface-container-low px-space-sm py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px] text-on-surface">point_of_sale</span> متوافق مع البيع الفوري السريع
+        </span>
+</div>
+</div>
+</section>
+<!-- Technical Spec & Fast Acoustic Comparison Strip (Bento Visual Module) -->
+<section class="w-full grid grid-cols-1 lg:grid-cols-3 gap-space-md mb-space-xl">
+<!-- Tile 1: Small Category Info -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="bg-surface-container text-on-surface font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold">الفئة 1</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mt-1">الصبات الصغيرة (Pocket / Mini)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">القدرة من 3W إلى 15W | بطاريات 500mAh - 1800mAh | مناسبة للجيب والدراجات والرحلات الشخصية.</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-[28px]">graphic_eq</span>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low px-space-sm py-1.5 rounded-lg">
+<span>هامش الربح القياسي:</span>
+<span class="font-code-mono font-bold text-on-surface">35% - 50%</span>
+</div>
+</div>
+<!-- Tile 2: Medium Category Info -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="bg-surface-container text-on-surface font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold">الفئة 2</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mt-1">الصبات المتوسطة (Desktop / Subwoofer)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">القدرة من 20W إلى 80W | مزودة براديو FM وبلوتوث ومدخل AUX وكارت ميموري TF Card.</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-[28px]">speaker_phone</span>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low px-space-sm py-1.5 rounded-lg">
+<span>هامش الربح القياسي:</span>
+<span class="font-code-mono font-bold text-on-surface">25% - 40%</span>
+</div>
+</div>
+<!-- Tile 3: Large Category Info -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="bg-surface-container text-on-surface font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold">الفئة 3</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mt-1">الصبات الكبيرة (Party / DJ Trolley)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">القدرة من 100W إلى 1500W PMPO | ترولي بعجل وميكروفونات لاسلكية وريموت كنترول وإضاءات RGB فل فريم.</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-[28px]">surround_sound</span>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low px-space-sm py-1.5 rounded-lg">
+<span>هامش الربح القياسي:</span>
+<span class="font-code-mono font-bold text-on-surface">20% - 30%</span>
+</div>
+</div>
+</section>
+<!-- Universal CRUD Modal: Add / Edit Speaker Dialog (Hidden by Default) -->
+<div class="fixed inset-0 z-50 bg-primary-container/60 backdrop-blur-sm hidden flex items-center justify-center p-gutter" id="speakerCrudModal">
+<div class="bg-surface-container-lowest w-full max-w-2xl rounded-2xl shadow-xl overflow-hidden flex flex-col max-h-[921px]">
+<!-- Modal Header -->
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">speaker</span>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface" id="modalDialogTitle">إضافة صب مكبر صوت جديد</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">قم بملء البيانات التقنية ومواصفات الصوت والأسعار</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" id="btnCloseModal" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Modal Body Form -->
+<form class="p-space-lg overflow-y-auto flex flex-col gap-space-md" id="speakerForm">
+<input id="speakerEditIndex" type="hidden" value="-1"/>
+<!-- Category Selector in Modal -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">فئة حجم الصب <span class="text-error">*</span></label>
+<div class="grid grid-cols-3 gap-space-xs">
+<label class="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer font-label-md text-label-md text-on-surface has-[:checked]:bg-secondary-container has-[:checked]:text-on-secondary transition-all">
+<input checked="" class="hidden" name="modalSpeakerCategory" type="radio" value="small"/>
+<span class="material-symbols-outlined text-[18px]">volume_down</span>
+<span>صب صغير</span>
+</label>
+<label class="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer font-label-md text-label-md text-on-surface has-[:checked]:bg-secondary-container has-[:checked]:text-on-secondary transition-all">
+<input class="hidden" name="modalSpeakerCategory" type="radio" value="medium"/>
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+<span>صب وسط</span>
+</label>
+<label class="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer font-label-md text-label-md text-on-surface has-[:checked]:bg-secondary-container has-[:checked]:text-on-secondary transition-all">
+<input class="hidden" name="modalSpeakerCategory" type="radio" value="large"/>
+<span class="material-symbols-outlined text-[18px]">speaker_group</span>
+<span>صب كبير</span>
+</label>
+</div>
+</div>
+<!-- Row 1: Barcode & Brand -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">الباركود الدولي أو المحلي <span class="text-error">*</span></label>
+<div class="relative">
+<input class="w-full pl-10 pr-3 py-2 bg-surface-container-low rounded-lg font-code-mono text-body-md text-on-surface focus:bg-surface-container-lowest focus:shadow-[0_0_0_3px_rgba(49,107,243,0.2)] focus:outline-none" id="modalBarcode" placeholder="مثال: 622300188921" required="" type="text"/>
+<button class="absolute left-2 top-2 text-secondary hover:text-secondary/80 text-[18px]" id="btnGenRandomBarcode" title="توليد باركود تلقائي" type="button">
+<span class="material-symbols-outlined text-[20px]">autorenew</span>
+</button>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">الماركة / البراند <span class="text-error">*</span></label>
+<input class="w-full px-3 py-2 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:bg-surface-container-lowest focus:shadow-[0_0_0_3px_rgba(49,107,243,0.2)] focus:outline-none" id="modalBrand" placeholder="مثال: JBL, Tiger, Kisonli, Awei, Havit" required="" type="text"/>
+</div>
+</div>
+<!-- Row 2: Model Name & Acoustic Specs -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">اسم الموديل التجاري <span class="text-error">*</span></label>
+<input class="w-full px-3 py-2 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:bg-surface-container-lowest focus:shadow-[0_0_0_3px_rgba(49,107,243,0.2)] focus:outline-none" id="modalModelName" placeholder="مثال: Go 3 / PartyBox 110 / R-1200" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">القدرة والصوت (وات / بطارية) <span class="text-error">*</span></label>
+<input class="w-full px-3 py-2 bg-surface-container-low rounded-lg font-code-mono text-body-md text-on-surface focus:bg-surface-container-lowest focus:shadow-[0_0_0_3px_rgba(49,107,243,0.2)] focus:outline-none" id="modalPowerBattery" placeholder="مثال: 10W - 1200mAh أو 160W RMS" required="" type="text"/>
+</div>
+</div>
+<!-- Row 3: Pricing & Cost -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md bg-surface-container-low p-space-md rounded-xl">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">سعر الشراء والتكلفة (ج.م) <span class="text-error">*</span></label>
+<input class="w-full px-3 py-2 bg-surface-container-lowest rounded-lg font-code-mono text-body-md text-on-surface focus:shadow-[0_0_0_3px_rgba(49,107,243,0.2)] focus:outline-none" id="modalCostPrice" min="0" placeholder="0.00" required="" step="0.5" type="number"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">سعر البيع النهائي للعميل (ج.م) <span class="text-error">*</span></label>
+<input class="w-full px-3 py-2 bg-surface-container-lowest rounded-lg font-code-mono text-body-md text-on-surface font-bold text-secondary focus:shadow-[0_0_0_3px_rgba(49,107,243,0.2)] focus:outline-none" id="modalSalePrice" min="0" placeholder="0.00" required="" step="0.5" type="number"/>
+</div>
+</div>
+<!-- Row 4: Quantity & Alert Threshold -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">الكمية الأولية بالمخزن <span class="text-error">*</span></label>
+<input class="w-full px-3 py-2 bg-surface-container-low rounded-lg font-code-mono text-body-md text-on-surface focus:bg-surface-container-lowest focus:shadow-[0_0_0_3px_rgba(49,107,243,0.2)] focus:outline-none" id="modalQuantity" min="0" required="" type="number" value="1"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">حد تنبيه النواقص (قطع)</label>
+<input class="w-full px-3 py-2 bg-surface-container-low rounded-lg font-code-mono text-body-md text-on-surface focus:bg-surface-container-lowest focus:shadow-[0_0_0_3px_rgba(49,107,243,0.2)] focus:outline-none" id="modalMinStockAlert" min="1" type="number" value="2"/>
+</div>
+</div>
+<!-- Modal Action Footer inside form -->
+<div class="mt-space-sm pt-space-md flex items-center justify-end gap-space-sm">
+<button class="px-space-md py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" id="btnCancelModal" type="button">
+            إلغاء التراجع
+          </button>
+<button class="bg-secondary-container hover:bg-secondary text-on-secondary px-space-lg py-2 rounded-lg font-headline-sm text-headline-sm flex items-center gap-1.5 shadow-md transition-all" type="submit">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span id="modalSubmitText">حفظ الصب في الكتالوج</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Notification Toast Banner -->
+<div class="fixed bottom-14 left-6 z-50 bg-primary-container text-on-primary px-space-md py-space-sm rounded-xl shadow-xl flex items-center gap-space-sm transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="toastNotification">
+<span class="material-symbols-outlined text-[20px] text-on-tertiary-container" id="toastIcon">check_circle</span>
+<span class="font-label-lg text-label-lg" id="toastMessage">تم تحديث بيانات الصب بنجاح</span>
+</div>
+</div>
+<script>
+  (function initSpeakersModule() {
+    // Master In-Memory State
+    let currentCategory = 'small'; // 'small' | 'medium' | 'large'
+    let speakersStore = [];
+
+    // Category Metadata
+    const categoriesMeta = {
+      small: {
+        title: 'قسم: صب صغير (Small Speaker)',
+        emptyText: 'لا توجد صبات مسجلة في قسم (صب صغير) حتى الآن',
+        desc: 'سماعات بلوتوث محمولة خفيفة الوزن، صبات جي بي إل ميني، صبات مضيئة صغيرة وكف اليد'
+      },
+      medium: {
+        title: 'قسم: صب وسط (Medium Speaker)',
+        emptyText: 'لا توجد صبات مسجلة في قسم (صب وسط) حتى الآن',
+        desc: 'أنظمة صوتية مكتبية ومنزلية 2.1 و 3.1، صبات كاريوكي خفيفة مع وصلة AUX وبلوتوث'
+      },
+      large: {
+        title: 'قسم: صب كبير (Large Speaker / Party)',
+        emptyText: 'لا توجد صبات مسجلة في قسم (صب كبير) حتى الآن',
+        desc: 'صبات حفلات دي جي ضخمة، سماعات ترولي بعجل وميكروفونات لاسلكية وقدرات تتجاوز 100W RMS'
+      }
+    };
+
+    // DOM Elements
+    const tableBody = document.getElementById('speakersTableBody');
+    const emptyState = document.getElementById('speakersEmptyState');
+    const tabButtons = document.querySelectorAll('.speaker-tab-btn');
+    const activeCatTitle = document.getElementById('activeCategoryTitle');
+    const activeCatDesc = document.getElementById('activeCategoryDesc');
+    const activeCatBadge = document.getElementById('activeCategoryStatusBadge');
+    const emptyCatTitle = document.getElementById('emptyCategoryTitle');
+    const barcodeScanner = document.getElementById('barcodeScannerInput');
+    const filterSelect = document.getElementById('stockFilterSelect');
+
+    // KPI Counters
+    const kpiTotalCount = document.getElementById('kpiTotalCount');
+    const kpiTotalCost = document.getElementById('kpiTotalCost');
+    const badgeSmallCount = document.getElementById('badgeSmallCount');
+    const badgeMediumCount = document.getElementById('badgeMediumCount');
+    const badgeLargeCount = document.getElementById('badgeLargeCount');
+
+    // Modal Elements
+    const crudModal = document.getElementById('speakerCrudModal');
+    const btnOpenAddModal = document.getElementById('btnOpenAddModal');
+    const btnEmptyAddSpeaker = document.getElementById('btnEmptyAddSpeaker');
+    const btnCloseModal = document.getElementById('btnCloseModal');
+    const btnCancelModal = document.getElementById('btnCancelModal');
+    const btnGenRandomBarcode = document.getElementById('btnGenRandomBarcode');
+    const btnImportPresetTemplate = document.getElementById('btnImportPresetTemplate');
+    const speakerForm = document.getElementById('speakerForm');
+    const modalTitle = document.getElementById('modalDialogTitle');
+    const modalSubmitText = document.getElementById('modalSubmitText');
+    const editIndexField = document.getElementById('speakerEditIndex');
+
+    // Form fields
+    const fBarcode = document.getElementById('modalBarcode');
+    const fBrand = document.getElementById('modalBrand');
+    const fModel = document.getElementById('modalModelName');
+    const fPower = document.getElementById('modalPowerBattery');
+    const fCost = document.getElementById('modalCostPrice');
+    const fSale = document.getElementById('modalSalePrice');
+    const fQty = document.getElementById('modalQuantity');
+    const fMinStock = document.getElementById('modalMinStockAlert');
+
+    // Toast utility
+    function showToast(message, isSuccess = true) {
+      const toast = document.getElementById('toastNotification');
+      const msg = document.getElementById('toastMessage');
+      const icon = document.getElementById('toastIcon');
+      msg.textContent = message;
+      icon.textContent = isSuccess ? 'check_circle' : 'info';
+      icon.className = `material-symbols-outlined text-[20px] ${isSuccess ? 'text-on-tertiary-container' : 'text-error'}`;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3000);
+    }
+
+    // Update Overall Stock & Badges
+    function updateMetrics() {
+      const smallCount = speakersStore.filter(s => s.category === 'small').reduce((acc, curr) => acc + curr.quantity, 0);
+      const mediumCount = speakersStore.filter(s => s.category === 'medium').reduce((acc, curr) => acc + curr.quantity, 0);
+      const largeCount = speakersStore.filter(s => s.category === 'large').reduce((acc, curr) => acc + curr.quantity, 0);
+
+      const totalQty = speakersStore.reduce((acc, curr) => acc + curr.quantity, 0);
+      const totalCost = speakersStore.reduce((acc, curr) => acc + (curr.quantity * curr.costPrice), 0);
+
+      kpiTotalCount.textContent = totalQty.toLocaleString('ar-EG');
+      kpiTotalCost.textContent = totalCost.toLocaleString('ar-EG', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+      badgeSmallCount.textContent = `${smallCount} أصناف`;
+      badgeMediumCount.textContent = `${mediumCount} أصناف`;
+      badgeLargeCount.textContent = `${largeCount} أصناف`;
+
+      const currentItemsCount = speakersStore.filter(s => s.category === currentCategory).length;
+      activeCatBadge.textContent = `${currentItemsCount} أصناف مسجلة`;
+    }
+
+    // Render Table Based on Active Category & Filter
+    function renderTable() {
+      updateMetrics();
+      const currentFilter = filterSelect.value;
+      
+      let items = speakersStore.filter(item => item.category === currentCategory);
+
+      if (currentFilter === 'in_stock') {
+        items = items.filter(s => s.quantity > 0);
+      } else if (currentFilter === 'low') {
+        items = items.filter(s => s.quantity > 0 && s.quantity <= s.minStock);
+      } else if (currentFilter === 'out') {
+        items = items.filter(s => s.quantity === 0);
+      }
+
+      if (items.length === 0) {
+        tableBody.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        emptyCatTitle.textContent = categoriesMeta[currentCategory].emptyText;
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      tableBody.innerHTML = items.map((speaker) => {
+        const isLow = speaker.quantity <= speaker.minStock && speaker.quantity > 0;
+        const isOut = speaker.quantity === 0;
+
+        let statusPill = `<span class="bg-surface-container-high text-on-tertiary-container font-code-mono text-label-sm px-2.5 py-1 rounded-full font-bold">متوفر طبيعي</span>`;
+        if (isOut) {
+          statusPill = `<span class="bg-error-container text-on-error-container font-code-mono text-label-sm px-2.5 py-1 rounded-full font-bold">رصيد نفذ (0)</span>`;
+        } else if (isLow) {
+          statusPill = `<span class="bg-surface-container text-error font-code-mono text-label-sm px-2.5 py-1 rounded-full font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">warning</span>نواقص وشيكة</span>`;
+        }
+
+        return `
+          <tr class="hover:bg-surface-container-low/60 transition-colors">
+            <td class="py-3 px-space-md font-code-mono text-on-surface">
+              <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[18px] text-on-surface-variant">qr_code</span>
+                <span class="font-bold">${speaker.barcode}</span>
+              </div>
+            </td>
+            <td class="py-3 px-space-md">
+              <div class="flex flex-col">
+                <span class="font-headline-sm text-headline-sm text-on-surface">${speaker.modelName}</span>
+                <span class="font-label-sm text-label-sm text-secondary font-bold">${speaker.brand}</span>
+              </div>
+            </td>
+            <td class="py-3 px-space-md">
+              <span class="bg-surface-container font-code-mono text-label-md px-2 py-0.5 rounded text-on-surface">
+                ${speaker.powerBattery}
+              </span>
+            </td>
+            <td class="py-3 px-space-md font-code-mono text-body-md text-on-surface-variant">
+              ${speaker.costPrice.toFixed(2)} ج.م
+            </td>
+            <td class="py-3 px-space-md font-code-mono font-headline-sm text-headline-sm text-secondary">
+              ${speaker.salePrice.toFixed(2)} ج.م
+            </td>
+            <td class="py-3 px-space-md font-code-mono text-headline-sm text-headline-sm text-on-surface">
+              ${speaker.quantity}
+            </td>
+            <td class="py-3 px-space-md text-center">
+              ${statusPill}
+            </td>
+            <td class="py-3 px-space-md text-left">
+              <div class="flex items-center justify-end gap-1">
+                <button 
+                  type="button" 
+                  data-action="edit" 
+                  data-id="${speaker.id}"
+                  class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-secondary transition-colors" 
+                  title="تعديل مواصفات الصب">
+                  <span class="material-symbols-outlined text-[18px]">edit</span>
+                </button>
+                <button 
+                  type="button" 
+                  data-action="delete" 
+                  data-id="${speaker.id}"
+                  class="p-1.5 rounded-lg text-on-surface-variant hover:bg-error-container hover:text-error transition-colors" 
+                  title="حذف من المخزن">
+                  <span class="material-symbols-outlined text-[18px]">delete</span>
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // Switch Category Tabs
+    function setCategory(catKey) {
+      currentCategory = catKey;
+      activeCatTitle.textContent = categoriesMeta[catKey].title;
+      activeCatDesc.textContent = categoriesMeta[catKey].desc;
+
+      tabButtons.forEach(btn => {
+        const isTarget = btn.getAttribute('data-speaker-cat') === catKey;
+        if (isTarget) {
+          btn.className = 'speaker-tab-btn flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container text-on-primary shadow-sm transition-all text-right cursor-pointer';
+          const countBadge = btn.querySelector('span[id^="badge"]');
+          if (countBadge) {
+            countBadge.className = 'mr-space-xs bg-surface-container-lowest text-on-surface font-code-mono text-label-sm px-2 py-0.5 rounded-full font-bold';
+          }
+        } else {
+          btn.className = 'speaker-tab-btn flex items-center gap-space-xs px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all text-right cursor-pointer';
+          const countBadge = btn.querySelector('span[id^="badge"]');
+          if (countBadge) {
+            countBadge.className = 'mr-space-xs bg-surface-container text-on-surface-variant font-code-mono text-label-sm px-2 py-0.5 rounded-full';
+          }
+        }
+      });
+
+      renderTable();
+    }
+
+    // Modal Opening Helpers
+    function openModalForCreate() {
+      editIndexField.value = '-1';
+      modalTitle.textContent = 'إضافة صب مكبر صوت جديد';
+      modalSubmitText.textContent = 'حفظ الصب في الكتالوج';
+      speakerForm.reset();
+
+      // Pre-select active category
+      const targetRadio = speakerForm.querySelector(`input[name="modalSpeakerCategory"][value="${currentCategory}"]`);
+      if (targetRadio) targetRadio.checked = true;
+
+      // Autogen fresh barcode
+      fBarcode.value = 'SPK-' + Math.floor(10000000 + Math.random() * 90000000);
+      crudModal.classList.remove('hidden');
+      fBrand.focus();
+    }
+
+    function openModalForEdit(speakerId) {
+      const item = speakersStore.find(s => s.id === speakerId);
+      if (!item) return;
+
+      editIndexField.value = item.id;
+      modalTitle.textContent = `تعديل مواصفات: ${item.modelName}`;
+      modalSubmitText.textContent = 'حفظ التعديلات';
+
+      fBarcode.value = item.barcode;
+      fBrand.value = item.brand;
+      fModel.value = item.modelName;
+      fPower.value = item.powerBattery;
+      fCost.value = item.costPrice;
+      fSale.value = item.salePrice;
+      fQty.value = item.quantity;
+      fMinStock.value = item.minStock;
+
+      const targetRadio = speakerForm.querySelector(`input[name="modalSpeakerCategory"][value="${item.category}"]`);
+      if (targetRadio) targetRadio.checked = true;
+
+      crudModal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      crudModal.classList.add('hidden');
+    }
+
+    // Preset Seed Items (Demo Catalog Injection)
+    function seedCatalogSamples() {
+      speakersStore = [
+        {
+          id: 'spk_1',
+          category: 'small',
+          barcode: '62240019281',
+          brand: 'JBL',
+          modelName: 'Clip 4 Ultra Portable',
+          powerBattery: '5W RMS / 1050mAh (10 hrs)',
+          costPrice: 850.00,
+          salePrice: 1250.00,
+          quantity: 7,
+          minStock: 2
+        },
+        {
+          id: 'spk_2',
+          category: 'small',
+          barcode: '62281144002',
+          brand: 'Kisonli',
+          modelName: 'LED Pulsing Micro Speaker',
+          powerBattery: '3W / 500mAh RGB',
+          costPrice: 95.00,
+          salePrice: 160.00,
+          quantity: 1,
+          minStock: 3
+        },
+        {
+          id: 'spk_3',
+          category: 'medium',
+          barcode: '62230099412',
+          brand: 'Tiger',
+          modelName: 'R-2020 Subwoofer Soundbar',
+          powerBattery: '45W RMS / AC 220V + BT',
+          costPrice: 1400.00,
+          salePrice: 1950.00,
+          quantity: 4,
+          minStock: 2
+        },
+        {
+          id: 'spk_4',
+          category: 'large',
+          barcode: '62299881122',
+          brand: 'Havit',
+          modelName: 'Party Trolley 12-Inch Wireless MIC',
+          powerBattery: '120W RMS / 4500mAh + Wheel',
+          costPrice: 3200.00,
+          salePrice: 4300.00,
+          quantity: 2,
+          minStock: 1
+        }
+      ];
+      renderTable();
+      showToast('تم تحميل عينات جاهزة من الصبات بنجاح');
+    }
+
+    // Attach Event Handlers
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.getAttribute('data-speaker-cat');
+        setCategory(cat);
+      });
+    });
+
+    filterSelect.addEventListener('change', renderTable);
+
+    btnOpenAddModal.addEventListener('click', openModalForCreate);
+    btnEmptyAddSpeaker.addEventListener('click', openModalForCreate);
+    btnCloseModal.addEventListener('click', closeModal);
+    btnCancelModal.addEventListener('click', closeModal);
+
+    btnGenRandomBarcode.addEventListener('click', () => {
+      fBarcode.value = 'SPK-' + Math.floor(10000000 + Math.random() * 90000000);
+    });
+
+    btnImportPresetTemplate.addEventListener('click', seedCatalogSamples);
+
+    // Document Keyboard Shortcuts (F1, F3, ESC)
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'F1') {
+        e.preventDefault();
+        openModalForCreate();
+      } else if (e.key === 'F3') {
+        e.preventDefault();
+        barcodeScanner.focus();
+        barcodeScanner.select();
+      } else if (e.key === 'Escape' && !crudModal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+
+    // Form Submission (Add or Update)
+    speakerForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const editId = editIndexField.value;
+      const selectedCat = speakerForm.querySelector('input[name="modalSpeakerCategory"]:checked').value;
+
+      const speakerData = {
+        category: selectedCat,
+        barcode: fBarcode.value.trim(),
+        brand: fBrand.value.trim(),
+        modelName: fModel.value.trim(),
+        powerBattery: fPower.value.trim(),
+        costPrice: parseFloat(fCost.value) || 0,
+        salePrice: parseFloat(fSale.value) || 0,
+        quantity: parseInt(fQty.value, 10) || 0,
+        minStock: parseInt(fMinStock.value, 10) || 1
+      };
+
+      if (editId === '-1') {
+        // Create
+        speakerData.id = 'spk_' + Date.now();
+        speakersStore.unshift(speakerData);
+        showToast(`تمت إضافة الصب (${speakerData.modelName}) بنجاح`);
+      } else {
+        // Update
+        const idx = speakersStore.findIndex(s => s.id === editId);
+        if (idx !== -1) {
+          speakersStore[idx] = { ...speakersStore[idx], ...speakerData };
+          showToast(`تم تحديث الصب (${speakerData.modelName}) بنجاح`);
+        }
+      }
+
+      closeModal();
+      // Auto switch category if changed inside modal
+      if (currentCategory !== selectedCat) {
+        setCategory(selectedCat);
+      } else {
+        renderTable();
+      }
+    });
+
+    // Table In-Row Actions (Edit & Delete delegation)
+    tableBody.addEventListener('click', (e) => {
+      const editBtn = e.target.closest('button[data-action="edit"]');
+      const delBtn = e.target.closest('button[data-action="delete"]');
+
+      if (editBtn) {
+        const id = editBtn.getAttribute('data-id');
+        openModalForEdit(id);
+      } else if (delBtn) {
+        const id = delBtn.getAttribute('data-id');
+        const item = speakersStore.find(s => s.id === id);
+        if (item && confirm(`هل أنت متأكد من رغبتك في حذف الصب: ${item.modelName} نهائياً؟`)) {
+          speakersStore = speakersStore.filter(s => s.id !== id);
+          renderTable();
+          showToast(`تم حذف الصب من المخزن بنجاح`, false);
+        }
+      }
+    });
+
+    // Instant Barcode Simulation from Hardware Reader
+    barcodeScanner.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const code = barcodeScanner.value.trim();
+        if (!code) return;
+
+        const match = speakersStore.find(s => s.barcode === code);
+        if (match) {
+          // Switch to match category & highlight
+          setCategory(match.category);
+          showToast(`تم تحديد الصب: ${match.modelName} | السعر: ${match.salePrice} ج.م`);
+        } else {
+          // Trigger quick registration for unknown barcode
+          if (confirm(`الباركود (${code}) غير مسجل. هل تريد إضافته كصب جديد الآن؟`)) {
+            openModalForCreate();
+            fBarcode.value = code;
+          }
+        }
+        barcodeScanner.value = '';
+      }
+    });
+
+    // Initial Empty State Render
+    renderTable();
+  })();
+</script></main><footer class="w-full h-10 bg-surface-container-lowest shadow-[0_-1px_4px_rgba(0,0,0,0.02)] flex items-center justify-between px-gutter-desktop z-30"><div class="flex items-center gap-space-lg text-on-surface-variant font-label-md text-label-md"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">schedule</span><span>بدء الوردية: 09:00 ص (3 س 24 د)</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">print</span><span>طابعة الفواتير الحرارية: جاهزة (USB-01)</span></div></div><div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant"><span class="flex items-center gap-1"><kbd class="bg-surface-container px-1.5 py-0.5 rounded font-code-mono text-on-surface">F3</kbd> بحث مخزني سريع</span><span class="flex items-center gap-1"><kbd class="bg-surface-container px-1.5 py-0.5 rounded font-code-mono text-on-surface">F4</kbd> تحويل محفظة</span><span class="flex items-center gap-1"><kbd class="bg-surface-container px-1.5 py-0.5 rounded font-code-mono text-on-surface">ESC</kbd> تعليق الفاتورة</span></div></footer></div></body></html>

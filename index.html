@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>سنترال بلس | نظام إدارة المحل والمحافظ ونقاط البيع (POS)</title>
+
+  <!-- Google Fonts: Cairo, Tajawal, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+  
+  <!-- Material Symbols Outlined -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: "#0A192F",
+              800: "#112240",
+              700: "#1F2D48"
+            },
+            primary: {
+              DEFAULT: "#2563EB",
+              hover: "#1D4ED8",
+              light: "#3B82F6"
+            }
+          },
+          fontFamily: {
+            sans: ["Cairo", "Tajawal", "sans-serif"],
+            cairo: ["Cairo", "sans-serif"],
+            tajawal: ["Tajawal", "sans-serif"],
+            code: ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom App Styles -->
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="bg-[#F8FAFC] text-slate-900 font-sans antialiased min-h-screen">
+
+  <!-- ======================== Collapsible Sidebar (Right) ======================== -->
+  <aside id="app-sidebar" class="fixed right-0 top-0 h-full w-72 bg-[#0A192F] text-white z-50 flex flex-col justify-between shadow-2xl transition-transform duration-300 ease-in-out border-l border-slate-800">
+    <!-- Top Branding & Navigation -->
+    <div class="flex flex-col">
+      <!-- Store Header -->
+      <div class="h-16 px-5 flex items-center justify-between border-b border-slate-800/80 bg-[#071324]">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
+            <span class="material-symbols-outlined text-[24px]">phonelink_setup</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-extrabold text-base tracking-wide text-white font-cairo">سنترال بلس</span>
+            <span class="text-[11px] text-blue-300 font-tajawal">Telecom POS & Management</span>
+          </div>
+        </div>
+        <button onclick="window.toggleSidebar()" class="lg:hidden p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <!-- Branch Indicator -->
+      <div class="p-3">
+        <div class="bg-[#112240] px-3.5 py-2 rounded-xl flex items-center justify-between border border-slate-700/50">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-blue-400 text-[18px]">storefront</span>
+            <span class="text-xs font-bold text-slate-200">الفرع الرئيسي (1)</span>
+          </div>
+          <span class="bg-emerald-500/20 text-emerald-300 font-code text-[10px] px-2 py-0.5 rounded-full font-bold">ONLINE</span>
+        </div>
+      </div>
+
+      <!-- Core 6 Pages Navigation -->
+      <nav class="flex flex-col gap-1.5 px-3 mt-1">
+        <!-- 1. لوحة الإدارة -->
+        <button onclick="window.navigateTo('dashboard')" data-page="dashboard" class="sidebar-nav-btn nav-active w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all text-right">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-[20px]">dashboard</span>
+            <span>لوحة الإدارة والمؤشرات</span>
+          </div>
+          <span class="material-symbols-outlined text-[16px] opacity-60">chevron_left</span>
+        </button>
+
+        <!-- 2. محافظ فودافون كاش -->
+        <button onclick="window.navigateTo('vodafone')" data-page="vodafone" class="sidebar-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:bg-slate-800/60 hover:text-white transition-all text-right">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+            <span>محافظ فودافون كاش</span>
+          </div>
+          <span class="bg-blue-600/30 text-blue-300 font-code text-[10px] px-2 py-0.5 rounded-full font-bold">18 خط</span>
+        </button>
+
+        <!-- 3. قسم الشواحن والوصلات -->
+        <button onclick="window.navigateTo('chargers')" data-page="chargers" class="sidebar-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:bg-slate-800/60 hover:text-white transition-all text-right">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-[20px]">cable</span>
+            <span>قسم الشواحن والوصلات</span>
+          </div>
+          <span class="bg-slate-800 text-slate-400 text-[10px] px-1.5 py-0.5 rounded">5 أقسام</span>
+        </button>
+
+        <!-- 4. مبيعات التليفونات -->
+        <button onclick="window.navigateTo('phones')" data-page="phones" class="sidebar-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:bg-slate-800/60 hover:text-white transition-all text-right">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-[20px]">smartphone</span>
+            <span>مبيعات التليفونات (IMEI)</span>
+          </div>
+          <span class="material-symbols-outlined text-[16px] opacity-60">chevron_left</span>
+        </button>
+
+        <!-- 5. قسم السماعات -->
+        <button onclick="window.navigateTo('headphones')" data-page="headphones" class="sidebar-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:bg-slate-800/60 hover:text-white transition-all text-right">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-[20px]">headphones</span>
+            <span>قسم السماعات والصوتيات</span>
+          </div>
+          <span class="bg-slate-800 text-slate-400 text-[10px] px-1.5 py-0.5 rounded">3 أقسام</span>
+        </button>
+
+        <!-- 6. قسم الصبات -->
+        <button onclick="window.navigateTo('speakers')" data-page="speakers" class="sidebar-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:bg-slate-800/60 hover:text-white transition-all text-right">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-[20px]">speaker</span>
+            <span>قسم الصبات والمكبرات</span>
+          </div>
+          <span class="bg-slate-800 text-slate-400 text-[10px] px-1.5 py-0.5 rounded">3 أحجام</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Bottom Sidebar Controls & Cash Drawer -->
+    <div class="p-3 flex flex-col gap-2 border-t border-slate-800/80 bg-[#071324]">
+      <!-- Cash Drawer Widget -->
+      <div class="bg-[#112240] p-3 rounded-xl border border-slate-700/50 flex flex-col gap-1">
+        <div class="flex items-center justify-between text-slate-400 text-[11px]">
+          <span>درج الكاشير الحالي:</span>
+          <span class="text-emerald-400 font-bold font-code">نشط #402</span>
+        </div>
+        <div class="flex items-baseline justify-between mt-1">
+          <span id="sidebar-cash-drawer" class="text-xl font-extrabold text-white font-code">0.00</span>
+          <span class="text-xs text-slate-400 font-bold">ج.م</span>
+        </div>
+      </div>
+
+      <!-- Backup / Cloud Export Button -->
+      <button onclick="window.exportBackupFile()" class="w-full py-2 px-3 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold flex items-center justify-center gap-2 transition-all">
+        <span class="material-symbols-outlined text-[16px]">cloud_download</span>
+        <span>نسخ احتياطي للبيانات (JSON)</span>
+      </button>
+
+      <!-- Import Backup File (Hidden Input) -->
+      <label class="w-full py-1.5 px-3 rounded-lg hover:bg-slate-800/50 text-slate-400 hover:text-slate-200 text-[11px] flex items-center justify-center gap-1.5 cursor-pointer transition-all">
+        <span class="material-symbols-outlined text-[15px]">cloud_upload</span>
+        <span>استعادة نسخة احتياطية</span>
+        <input type="file" accept=".json" onchange="window.importBackupFile(this)" class="hidden"/>
+      </label>
+    </div>
+  </aside>
+
+  <!-- ======================== Main App Viewport ======================== -->
+  <div class="lg:pr-72 min-h-screen flex flex-col">
+    <!-- Top Fixed Master Header -->
+    <header class="fixed top-0 lg:right-72 right-0 left-0 h-16 bg-white/95 backdrop-blur-md border-b border-slate-200/80 z-40 flex items-center justify-between px-4 lg:px-8">
+      <!-- Left Header Actions -->
+      <div class="flex items-center gap-3">
+        <!-- Mobile Sidebar Toggle -->
+        <button onclick="window.toggleSidebar()" class="lg:hidden p-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200">
+          <span class="material-symbols-outlined text-[20px]">menu</span>
+        </button>
+
+        <!-- Barcode Scanner Hardware Ready Indicator -->
+        <div class="hidden sm:flex items-center gap-2 bg-slate-100 px-3.5 py-1.5 rounded-full border border-slate-200/60 shadow-sm">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="text-xs font-bold text-slate-700">قارئ الباركود متصل جاهز للمسح</span>
+          <span class="material-symbols-outlined text-emerald-600 text-[18px]">qr_code_scanner</span>
+        </div>
+
+        <!-- Firebase Cloud Sync Indicator -->
+        <div id="firebase-status-badge" class="hidden md:flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-slate-600 text-[11px] font-bold">
+          <span id="firebase-status-dot" class="w-2 h-2 rounded-full bg-amber-400"></span>
+          <span id="firebase-status-text">متصل بالسحابة (Firebase)</span>
+        </div>
+      </div>
+
+      <!-- Right Header Actions (POS, New Product, Cashier) -->
+      <div class="flex items-center gap-3">
+        <!-- Cash Drawer Quick Display -->
+        <div class="hidden sm:flex items-center gap-2 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200">
+          <span class="text-xs text-slate-500 font-bold">عهدة الكاش:</span>
+          <span id="topbar-cash-drawer" class="text-sm font-extrabold text-blue-600 font-code">0.00 ج.م</span>
+        </div>
+
+        <!-- Quick POS Trigger Button (F2) -->
+        <button onclick="window.posModule.openPOS()" class="bg-blue-600 hover:bg-blue-700 text-white px-3.5 py-2 rounded-xl flex items-center gap-2 shadow-md shadow-blue-500/20 transition-all font-bold text-xs">
+          <span class="material-symbols-outlined text-[18px]">bolt</span>
+          <span>نقطة بيع سريعة (POS)</span>
+          <kbd class="bg-blue-800 font-code text-[10px] px-1.5 py-0.5 rounded">F2</kbd>
+        </button>
+
+        <!-- Fast Add Product Button (F1) -->
+        <button onclick="window.openNewProductModal()" class="bg-slate-100 hover:bg-slate-200 text-slate-800 px-3 py-2 rounded-xl flex items-center gap-1.5 transition-all font-bold text-xs">
+          <span class="material-symbols-outlined text-[18px]">add_circle</span>
+          <span>صنف جديد</span>
+          <kbd class="bg-white border border-slate-200 font-code text-[10px] px-1.5 py-0.5 rounded">F1</kbd>
+        </button>
+
+        <!-- Cashier Avatar -->
+        <div class="flex items-center gap-2 border-r border-slate-200 pr-3 mr-1">
+          <div class="w-8 h-8 rounded-full bg-[#0A192F] text-white flex items-center justify-center font-bold text-xs">
+            <span class="material-symbols-outlined text-[16px]">person</span>
+          </div>
+          <div class="hidden xl:flex flex-col text-right">
+            <span class="text-xs font-bold text-slate-800 leading-tight">أحمد الكاشير</span>
+            <span class="text-[10px] text-slate-400">مدير وردية #402</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area (Dynamic Router Pages) -->
+    <main class="w-full pt-20 pb-12 px-4 lg:px-8 flex-1">
+      <!-- 1. لوحة الإدارة والمؤشرات -->
+      <div id="page-dashboard" class="page-container"></div>
+
+      <!-- 2. محافظ فودافون كاش (18 خط) -->
+      <div id="page-vodafone" class="page-container hidden"></div>
+
+      <!-- 3. قسم الشواحن والوصلات -->
+      <div id="page-chargers" class="page-container hidden"></div>
+
+      <!-- 4. مبيعات التليفونات -->
+      <div id="page-phones" class="page-container hidden"></div>
+
+      <!-- 5. قسم السماعات والصوتيات -->
+      <div id="page-headphones" class="page-container hidden"></div>
+
+      <!-- 6. قسم الصبات والمكبرات -->
+      <div id="page-speakers" class="page-container hidden"></div>
+    </main>
+
+    <!-- Bottom Status Bar -->
+    <footer class="h-10 bg-white border-t border-slate-200 flex items-center justify-between px-6 text-xs text-slate-500 z-30">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-1">
+          <span class="material-symbols-outlined text-[16px]">schedule</span>
+          <span>بدء الوردية: 09:00 ص</span>
+        </span>
+        <span class="flex items-center gap-1">
+          <span class="material-symbols-outlined text-[16px]">print</span>
+          <span>طابعة الفواتير الحرارية: جاهزة (80mm)</span>
+        </span>
+      </div>
+      <div class="hidden md:flex items-center gap-4 text-[11px]">
+        <span><kbd class="bg-slate-100 border border-slate-200 px-1 py-0.5 rounded font-code">F1</kbd> إضافة صنف</span>
+        <span><kbd class="bg-slate-100 border border-slate-200 px-1 py-0.5 rounded font-code">F2</kbd> نقطة بيع POS</span>
+        <span><kbd class="bg-slate-100 border border-slate-200 px-1 py-0.5 rounded font-code">F3</kbd> بحث سريع</span>
+        <span><kbd class="bg-slate-100 border border-slate-200 px-1 py-0.5 rounded font-code">F4</kbd> فودافون كاش</span>
+        <span><kbd class="bg-slate-100 border border-slate-200 px-1 py-0.5 rounded font-code">ESC</kbd> إغلاق</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ======================== Global Modals & Drawers ======================== -->
+
+  <!-- 1. Quick POS (F2) Modal / Cart Drawer -->
+  <div id="pos-modal" class="fixed inset-0 z-50 bg-[#0A192F]/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white w-full max-w-4xl rounded-2xl shadow-2xl flex flex-col max-h-[90vh] overflow-hidden border border-slate-200">
+      <!-- POS Header -->
+      <div class="h-16 px-6 bg-[#0A192F] text-white flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white">
+            <span class="material-symbols-outlined text-[22px]">shopping_cart</span>
+          </div>
+          <div>
+            <h2 class="font-bold text-base font-cairo">نقطة البيع السريعة (Quick POS)</h2>
+            <p class="text-xs text-blue-300">مسح الباركود، خصم المخزون وطباعة الفاتورة الفورية</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <span id="pos-cart-count" class="bg-blue-800 text-blue-200 text-xs px-2.5 py-1 rounded-full font-code">0 صنف</span>
+          <button onclick="window.posModule.closePOS()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800">
+            <span class="material-symbols-outlined text-[20px]">close</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- POS Main Grid (Left: Cart Items, Right: Totals & Customer) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 flex-1 overflow-y-auto">
+        <!-- Left: Cart Items (7 cols) -->
+        <div class="lg:col-span-7 p-5 flex flex-col gap-4 border-l border-slate-200">
+          <!-- Barcode Scan Input for POS -->
+          <div class="relative">
+            <span class="material-symbols-outlined absolute right-3 top-3 text-blue-600 text-[20px]">qr_code_scanner</span>
+            <input type="text" id="pos-barcode-input" 
+              onkeydown="if(event.key === 'Enter'){ window.posModule.handlePOSScan(this.value); this.value=''; }"
+              placeholder="امسح باركود المنتج هنا أو اكتبه واضغط Enter..." 
+              class="w-full pr-10 pl-4 py-2.5 rounded-xl border-2 border-blue-500/30 text-sm font-code focus:outline-none focus:border-blue-600">
+          </div>
+
+          <!-- Items List -->
+          <div class="flex items-center justify-between pt-2">
+            <span class="text-xs font-bold text-slate-600">الأصناف المضافة في الفاتورة:</span>
+            <button onclick="window.posModule.clearCart()" class="text-xs text-rose-600 hover:underline">تفريغ السلة</button>
+          </div>
+          <div id="pos-cart-items" class="flex flex-col gap-2.5 overflow-y-auto max-h-[360px] pr-1"></div>
+        </div>
+
+        <!-- Right: Invoice Calculations & Payment (5 cols) -->
+        <div class="lg:col-span-5 p-5 bg-slate-50 flex flex-col justify-between gap-4">
+          <div class="flex flex-col gap-3">
+            <h3 class="text-xs font-bold text-slate-700">بيانات العميل وطريقة الدفع:</h3>
+            
+            <!-- Customer Name & Phone -->
+            <div class="grid grid-cols-1 gap-2">
+              <input type="text" id="pos-customer-name" placeholder="اسم العميل (اختياري / افتراضي: نقدي)" class="px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white">
+              <input type="tel" id="pos-customer-phone" placeholder="رقم هاتف العميل (اختياري)" class="px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white font-code">
+            </div>
+
+            <!-- Discount -->
+            <div>
+              <label class="block text-xs font-bold text-slate-600 mb-1">الخصم المباشر (ج.م):</label>
+              <input type="number" step="any" min="0" id="pos-discount-input" oninput="window.posModule.setDiscount(this.value)" placeholder="0.00" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm font-bold font-code bg-white text-left">
+            </div>
+
+            <!-- Payment Method -->
+            <div>
+              <label class="block text-xs font-bold text-slate-600 mb-1">طريقة السداد:</label>
+              <div class="grid grid-cols-2 gap-2">
+                <button type="button" onclick="window.posModule.setPaymentMethod('cash')" id="btn-pay-cash" class="py-2 text-xs font-bold rounded-xl border bg-blue-600 text-white border-blue-600 shadow-sm">
+                  نقداً بالدرج
+                </button>
+                <button type="button" onclick="window.posModule.setPaymentMethod('vodafone')" id="btn-pay-vodafone" class="py-2 text-xs font-bold rounded-xl border bg-white text-slate-700 border-slate-200 hover:bg-slate-100">
+                  فودافون كاش
+                </button>
+              </div>
+            </div>
+
+            <!-- Vodafone Line Selector (if paymentMethod === 'vodafone') -->
+            <div id="pos-voda-select-container" class="hidden">
+              <label class="block text-xs font-bold text-slate-600 mb-1">حدد خط فودافون كاش المستلم:</label>
+              <select id="pos-voda-line-select" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white font-bold">
+                ${Array.from({length: 18}, (_, i) => `<option value="${i+1}">خط ${i+1}</option>`).join('')}
+              </select>
+            </div>
+
+            <!-- Financial Summary Box -->
+            <div class="bg-white p-4 rounded-xl border border-slate-200/80 flex flex-col gap-2 mt-2">
+              <div class="flex justify-between text-xs text-slate-500">
+                <span>المجموع الفرعي:</span>
+                <span class="font-code font-bold text-slate-800"><span id="pos-subtotal">0.00</span> ج.م</span>
+              </div>
+              <div class="flex justify-between text-xs text-rose-600">
+                <span>الخصم:</span>
+                <span class="font-code font-bold">-<span id="pos-discount-display">0.00</span> ج.م</span>
+              </div>
+              <div class="border-t border-slate-200 pt-2 flex justify-between items-baseline font-bold">
+                <span class="text-sm text-slate-900">الصافي الإجمالي:</span>
+                <div class="flex items-baseline gap-1 text-blue-600">
+                  <span id="pos-total" class="text-2xl font-extrabold font-code">0.00</span>
+                  <span class="text-xs">ج.م</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Checkout & Print Action -->
+          <button id="pos-checkout-btn" onclick="window.posModule.checkout()" disabled class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 transition-all">
+            <span class="material-symbols-outlined text-[20px]">print</span>
+            <span>إتمام البيع وطباعة الفاتورة الفورية</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Add / Edit Charger & Cable Modal -->
+  <div id="modal-charger-item" class="app-modal fixed inset-0 z-50 bg-[#0A192F]/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl p-6 border border-slate-200 flex flex-col gap-4">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <h3 id="charger-item-modal-title" class="font-bold text-base text-slate-900">إضافة صنف جديد (شاحن / وصلة)</h3>
+        <button onclick="window.closeModal('modal-charger-item')" class="p-1 rounded-lg text-slate-400 hover:text-slate-700">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <form onsubmit="window.chargersModule.saveItem(event)" class="flex flex-col gap-3">
+        <input type="hidden" id="charger-edit-id"/>
+        
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1">الباركود (امسح أو اضغط توليد) *</label>
+          <div class="flex gap-2">
+            <input type="text" id="charger-f-barcode" required class="flex-1 px-3 py-2 rounded-xl border border-slate-200 text-xs font-code focus:outline-none focus:border-blue-500">
+            <button type="button" onclick="document.getElementById('charger-f-barcode').value = '622' + Math.floor(100000000 + Math.random()*900000000)" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl whitespace-nowrap">
+              توليد باركود
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1">اسم الصنف والموديل *</label>
+          <input type="text" id="charger-f-name" required placeholder="مثال: شاحن أنكر نانو 20 واط تايب سي" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-blue-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">التصنيف الفرعي *</label>
+            <select id="charger-f-category" required class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white font-bold focus:outline-none">
+              <option value="complete">شاحن كامل</option>
+              <option value="adapter">رأس شاحن</option>
+              <option value="typec">وصلة شحن عريضة (Type-C)</option>
+              <option value="micro">وصلة شحن عادية (Micro)</option>
+              <option value="pin">وصلة شحن رفيعة (Pin)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">المواصفات (اختياري)</label>
+            <input type="text" id="charger-f-spec" placeholder="مثال: 65W GaN / سلك قماش 1.2م" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">سعر الشراء / التكلفة (ج.م) *</label>
+            <input type="number" step="any" min="0" id="charger-f-cost" required placeholder="0.00" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code text-left focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">سعر البيع للجمهور (ج.م) *</label>
+            <input type="number" step="any" min="0" id="charger-f-price" required placeholder="0.00" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code font-bold text-blue-600 text-left focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">الكمية المدخلة للمخزن *</label>
+            <input type="number" min="0" id="charger-f-quantity" required value="1" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code text-left focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">حد التنبيه الأدنى (نواقص)</label>
+            <input type="number" min="0" id="charger-f-min-stock" value="3" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code text-left focus:outline-none">
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end gap-2 mt-4 pt-3 border-t border-slate-100">
+          <button type="button" onclick="window.closeModal('modal-charger-item')" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100">إلغاء</button>
+          <button type="submit" class="px-5 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm">حفظ الصنف بالمخزن</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. Add / Edit Mobile Phone Modal -->
+  <div id="modal-phone-item" class="app-modal fixed inset-0 z-50 bg-[#0A192F]/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl p-6 border border-slate-200 flex flex-col gap-4">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <h3 id="phone-modal-title" class="font-bold text-base text-slate-900">إضافة هاتف جديد للمخزن</h3>
+        <button onclick="window.closeModal('modal-phone-item')" class="p-1 rounded-lg text-slate-400 hover:text-slate-700">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <form onsubmit="window.phonesModule.savePhone(event)" class="flex flex-col gap-3">
+        <input type="hidden" id="phone-edit-id"/>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1">رقم السيريال أو IMEI (15 رقماً) *</label>
+          <input type="text" id="phone-f-imei" required placeholder="امسح من علبة الهاتف أو اكتب الـ 15 رقماً" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code focus:outline-none focus:border-blue-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">الماركة (Brand) *</label>
+            <input type="text" id="phone-f-brand" required placeholder="مثال: Samsung, Xiaomi, Apple" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">الموديل (Model) *</label>
+            <input type="text" id="phone-f-model" required placeholder="مثال: Galaxy A54 5G" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">المساحة التخزينية</label>
+            <select id="phone-f-storage" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white font-bold">
+              <option value="64GB">64GB</option>
+              <option value="128GB" selected>128GB</option>
+              <option value="256GB">256GB</option>
+              <option value="512GB">512GB</option>
+              <option value="1TB">1TB</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">اللون</label>
+            <input type="text" id="phone-f-color" placeholder="مثال: أسود، أزرق، تيتانيوم" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">سعر التكلفة (ج.م) *</label>
+            <input type="number" step="any" min="0" id="phone-f-cost" required placeholder="0.00" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code text-left focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">سعر البيع (ج.م) *</label>
+            <input type="number" step="any" min="0" id="phone-f-price" required placeholder="0.00" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code font-bold text-blue-600 text-left focus:outline-none">
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end gap-2 mt-4 pt-3 border-t border-slate-100">
+          <button type="button" onclick="window.closeModal('modal-phone-item')" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100">إلغاء</button>
+          <button type="submit" class="px-5 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm">حفظ بيانات الهاتف</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. Sell Phone & Warranty Slip Modal -->
+  <div id="modal-sell-phone" class="app-modal fixed inset-0 z-50 bg-[#0A192F]/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl p-6 border border-slate-200 flex flex-col gap-4">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <h3 id="sell-phone-title" class="font-bold text-base text-slate-900">تسجيل مبايعة هاتف وضمان رسمي</h3>
+        <button onclick="window.closeModal('modal-sell-phone')" class="p-1 rounded-lg text-slate-400 hover:text-slate-700">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <form onsubmit="window.phonesModule.submitPhoneSale(event)" class="flex flex-col gap-3">
+        <input type="hidden" id="sell-phone-id"/>
+
+        <div class="bg-blue-50 p-3 rounded-xl border border-blue-200 flex items-center justify-between">
+          <span class="text-xs text-blue-800 font-bold">قيمة المبايعة المطلوبة:</span>
+          <span id="sell-phone-price-preview" class="text-lg font-extrabold text-blue-700 font-code">0.00 ج.م</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1">اسم المشتري / العميل *</label>
+          <input type="text" id="sell-customer-name" required placeholder="الاسم ثلاثي أو ثنائي" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-blue-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">رقم هاتف المشتري *</label>
+            <input type="tel" id="sell-customer-phone" required placeholder="01XXXXXXXXX" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">الرقم القومي للعميل</label>
+            <input type="text" id="sell-customer-nid" placeholder="14 رقماً (اختياري للضمان)" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">مدة الضمان الفني</label>
+            <select id="sell-warranty-days" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white font-bold">
+              <option value="14">14 يوماً (استبدال)</option>
+              <option value="30" selected>شهر (30 يوماً)</option>
+              <option value="90">3 شهور (90 يوماً)</option>
+              <option value="180">6 شهور (180 يوماً)</option>
+              <option value="365">سنة كاملة (365 يوماً)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">طريقة الدفع</label>
+            <select id="sell-payment-method" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white font-bold">
+              <option value="cash">نقداً بالدرج</option>
+              <option value="vodafone">فودافون كاش</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end gap-2 mt-4 pt-3 border-t border-slate-100">
+          <button type="button" onclick="window.closeModal('modal-sell-phone')" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100">إلغاء</button>
+          <button type="submit" class="px-5 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[17px]">verified</span>
+            <span>تأكيد المبايعة وإصدار الضمان</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 5. Add / Edit Headphone Modal -->
+  <div id="modal-headphone-item" class="app-modal fixed inset-0 z-50 bg-[#0A192F]/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl p-6 border border-slate-200 flex flex-col gap-4">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <h3 id="headphone-item-modal-title" class="font-bold text-base text-slate-900">إضافة سماعة جديدة للمخزن</h3>
+        <button onclick="window.closeModal('modal-headphone-item')" class="p-1 rounded-lg text-slate-400 hover:text-slate-700">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <form onsubmit="window.headphonesModule.saveItem(event)" class="flex flex-col gap-3">
+        <input type="hidden" id="headphone-edit-id"/>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1">الباركود *</label>
+          <div class="flex gap-2">
+            <input type="text" id="headphone-f-barcode" required class="flex-1 px-3 py-2 rounded-xl border border-slate-200 text-xs font-code focus:outline-none focus:border-blue-500">
+            <button type="button" onclick="document.getElementById('headphone-f-barcode').value = '622' + Math.floor(100000000 + Math.random()*900000000)" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl whitespace-nowrap">
+              توليد باركود
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1">اسم السماعة والموديل *</label>
+          <input type="text" id="headphone-f-name" required placeholder="مثال: سماعة سوني بلوتوث لاسلكية عازلة للضوضاء" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">التصنيف الفرعي *</label>
+            <select id="headphone-f-category" required class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white font-bold">
+              <option value="silicone">سماعة جلدة (In-Ear)</option>
+              <option value="classic">سماعة عضم (Hard-Shell)</option>
+              <option value="bluetooth">سماعة بلوتوث (Wireless)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">الماركة (Brand)</label>
+            <input type="text" id="headphone-f-brand" placeholder="مثال: Sony, Joyroom, Celebrat" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">سعر التكلفة (ج.م) *</label>
+            <input type="number" step="any" min="0" id="headphone-f-cost" required placeholder="0.00" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code text-left focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">سعر البيع (ج.م) *</label>
+            <input type="number" step="any" min="0" id="headphone-f-price" required placeholder="0.00" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code font-bold text-blue-600 text-left focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">الكمية المدخلة *</label>
+            <input type="number" min="0" id="headphone-f-quantity" required value="1" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code text-left focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">حد التنبيه الأدنى</label>
+            <input type="number" min="0" id="headphone-f-min-stock" value="3" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code text-left focus:outline-none">
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end gap-2 mt-4 pt-3 border-t border-slate-100">
+          <button type="button" onclick="window.closeModal('modal-headphone-item')" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100">إلغاء</button>
+          <button type="submit" class="px-5 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm">حفظ السماعة بالمخزن</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 6. Add / Edit Speaker Modal -->
+  <div id="modal-speaker-item" class="app-modal fixed inset-0 z-50 bg-[#0A192F]/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl p-6 border border-slate-200 flex flex-col gap-4">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <h3 id="speaker-item-modal-title" class="font-bold text-base text-slate-900">إضافة صب جديد للمخزن</h3>
+        <button onclick="window.closeModal('modal-speaker-item')" class="p-1 rounded-lg text-slate-400 hover:text-slate-700">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <form onsubmit="window.speakersModule.saveItem(event)" class="flex flex-col gap-3">
+        <input type="hidden" id="speaker-edit-id"/>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1">الباركود *</label>
+          <div class="flex gap-2">
+            <input type="text" id="speaker-f-barcode" required class="flex-1 px-3 py-2 rounded-xl border border-slate-200 text-xs font-code focus:outline-none focus:border-blue-500">
+            <button type="button" onclick="document.getElementById('speaker-f-barcode').value = '622' + Math.floor(100000000 + Math.random()*900000000)" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl whitespace-nowrap">
+              توليد باركود
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1">اسم الصب والموديل *</label>
+          <input type="text" id="speaker-f-name" required placeholder="مثال: صب مضيء جي بي إل محمول مع مايك" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">فئة الحجم *</label>
+            <select id="speaker-f-category" required class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white font-bold">
+              <option value="small">صب صغير (ميني / محمول)</option>
+              <option value="medium">صب وسط (سماعة مكتبية)</option>
+              <option value="large">صب كبير (ترولي / حفلات)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">الماركة (Brand)</label>
+            <input type="text" id="speaker-f-brand" placeholder="مثال: JBL, D10, Kisonli" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">سعر التكلفة (ج.م) *</label>
+            <input type="number" step="any" min="0" id="speaker-f-cost" required placeholder="0.00" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code text-left focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">سعر البيع (ج.م) *</label>
+            <input type="number" step="any" min="0" id="speaker-f-price" required placeholder="0.00" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code font-bold text-blue-600 text-left focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">الكمية بالمخزن *</label>
+            <input type="number" min="0" id="speaker-f-quantity" required value="1" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code text-left focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">حد التنبيه الأدنى</label>
+            <input type="number" min="0" id="speaker-f-min-stock" value="3" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code text-left focus:outline-none">
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end gap-2 mt-4 pt-3 border-t border-slate-100">
+          <button type="button" onclick="window.closeModal('modal-speaker-item')" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100">إلغاء</button>
+          <button type="submit" class="px-5 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm">حفظ الصب بالمخزن</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 7. Edit Vodafone Line Settings Modal -->
+  <div id="modal-edit-voda-line" class="app-modal fixed inset-0 z-50 bg-[#0A192F]/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl p-6 border border-slate-200 flex flex-col gap-4">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <h3 id="edit-voda-line-title" class="font-bold text-base text-slate-900">تعديل بيانات الخط</h3>
+        <button onclick="window.closeModal('modal-edit-voda-line')" class="p-1 rounded-lg text-slate-400 hover:text-slate-700">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <form onsubmit="window.saveVodafoneLineSettings(event)" class="flex flex-col gap-3">
+        <input type="hidden" id="edit-voda-line-id"/>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1">اسم / مسمى الخط *</label>
+          <input type="text" id="edit-voda-line-name" required class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-blue-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1">رقم هاتف الشريحة (فودافون كاش) *</label>
+          <input type="tel" id="edit-voda-line-phone" placeholder="مثال: 01012345678" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code focus:outline-none focus:border-blue-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1">الرصيد الفعلي الحالي (ج.م) *</label>
+          <input type="number" step="any" id="edit-voda-line-balance" required placeholder="0.00" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code font-bold text-blue-600 text-left focus:outline-none">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1">السقف / الحد الشهري للمحفظة (ج.م) *</label>
+          <input type="number" step="any" id="edit-voda-line-limit" required value="100000" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-code text-left focus:outline-none">
+        </div>
+
+        <div class="flex items-center justify-end gap-2 mt-4 pt-3 border-t border-slate-100">
+          <button type="button" onclick="window.closeModal('modal-edit-voda-line')" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100">إلغاء</button>
+          <button type="submit" class="px-5 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm">حفظ الإعدادات</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 8. Opening Cash Drawer Setup Modal -->
+  <div id="modal-opening-cash" class="app-modal fixed inset-0 z-50 bg-[#0A192F]/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white w-full max-w-sm rounded-2xl shadow-2xl p-6 border border-slate-200 flex flex-col gap-4">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <h3 class="font-bold text-base text-slate-900">ضبط رصيد افتتاح درج الكاشير</h3>
+        <button onclick="window.closeModal('modal-opening-cash')" class="p-1 rounded-lg text-slate-400 hover:text-slate-700">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <form onsubmit="window.saveOpeningCash(event)" class="flex flex-col gap-3">
+        <p class="text-xs text-slate-500">أدخل المبلغ النقدي الفعلي الموجود بالدرج في بداية الوردية (#402):</p>
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1">المبلغ النقدي (ج.م) *</label>
+          <input type="number" step="any" min="0" id="cash-opening-input" required placeholder="0.00" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-lg font-bold font-code text-blue-600 text-left focus:outline-none focus:border-blue-500">
+        </div>
+
+        <div class="flex items-center justify-end gap-2 mt-4 pt-3 border-t border-slate-100">
+          <button type="button" onclick="window.closeModal('modal-opening-cash')" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100">إلغاء</button>
+          <button type="submit" class="px-5 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm">تأكيد الرصيد</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================== Thermal Receipt Print Container (Media Print Only) ======================== -->
+  <div id="thermal-receipt-print-area"></div>
+
+  <!-- ======================== Toast Notifications Container ======================== -->
+  <div id="toast-container"></div>
+
+  <!-- Main Application Script (ESM) -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

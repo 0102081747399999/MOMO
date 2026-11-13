@@ -1,0 +1,19 @@
+{
+  "name": "central-plus-telecom-pos",
+  "version": "1.0.0",
+  "description": "Modern Arabic Point of Sale (POS) and Management System for Mobile Shop and Telecom Center",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js --open",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "pos",
+    "telecom",
+    "vodafone-cash",
+    "mobile-shop",
+    "arabic-pos"
+  ],
+  "author": "Antigravity",
+  "license": "ISC"
+}

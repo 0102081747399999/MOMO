@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;family=Tajawal:wght@500;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container": "#e5eeff", "on-primary-fixed": "#0d1c32", "primary-fixed": "#d6e3ff", "on-error": "#ffffff", "primary-fixed-dim": "#b9c7e4", "surface-container-high": "#dce9ff", "surface-container-low": "#eff4ff", "on-tertiary-container": "#009668", "error": "#ba1a1a", "inverse-on-surface": "#eaf1ff", "on-background": "#0b1c30", "secondary-fixed": "#dbe1ff", "tertiary-container": "#002113", "on-secondary-fixed": "#00174b", "outline-variant": "#c5c6cd", "on-primary": "#ffffff", "surface": "#f8f9ff", "outline": "#75777e", "on-error-container": "#93000a", "on-secondary-fixed-variant": "#003ea8", "inverse-surface": "#213145", "on-tertiary-fixed-variant": "#005236", "primary-container": "#0d1c32", "surface-container-lowest": "#ffffff", "on-tertiary": "#ffffff", "on-primary-fixed-variant": "#39475f", "tertiary": "#000000", "error-container": "#ffdad6", "on-surface-variant": "#44474d", "on-surface": "#0b1c30", "secondary-fixed-dim": "#b4c5ff", "on-primary-container": "#76849f", "on-secondary": "#ffffff", "tertiary-fixed-dim": "#4edea3", "on-secondary-container": "#fefcff", "surface-tint": "#515f78", "primary": "#000000", "surface-variant": "#d3e4fe", "inverse-primary": "#b9c7e4", "tertiary-fixed": "#6ffbbe", "on-tertiary-fixed": "#002113", "secondary-container": "#316bf3", "secondary": "#0051d5", "surface-bright": "#f8f9ff", "surface-dim": "#cbdbf5", "surface-container-highest": "#d3e4fe", "background": "#f8f9ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2rem", "gutter-desktop": "1.5rem", "gutter": "1rem", "margin": "1rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem", "margin-desktop": "2rem" }, "fontFamily": { "headline-sm": [ "Cairo" ], "label-lg": [ "Tajawal" ], "body-sm": [ "Cairo" ], "price-display": [ "Cairo" ], "body-lg": [ "Cairo" ], "headline-lg": [ "Cairo" ], "body-md": [ "Cairo" ], "headline-md": [ "Cairo" ], "label-sm": [ "Tajawal" ], "headline-lg-mobile": [ "Cairo" ], "headline-xl-mobile": [ "Cairo" ], "label-md": [ "Tajawal" ], "code-mono": [ "JetBrains Mono" ], "headline-xl": [ "Cairo" ] }, "fontSize": { "headline-sm": [ "16px", { "lineHeight": "24px", "fontWeight": "600" } ], "label-lg": [ "14px", { "lineHeight": "20px", "fontWeight": "500" } ], "body-sm": [ "12px", { "lineHeight": "18px", "fontWeight": "400" } ], "price-display": [ "32px", { "lineHeight": "40px", "fontWeight": "800" } ], "body-lg": [ "16px", { "lineHeight": "26px", "fontWeight": "400" } ], "headline-lg": [ "28px", { "lineHeight": "38px", "fontWeight": "700" } ], "body-md": [ "14px", { "lineHeight": "22px", "fontWeight": "400" } ], "headline-md": [ "20px", { "lineHeight": "28px", "fontWeight": "600" } ], "label-sm": [ "11px", { "lineHeight": "14px", "fontWeight": "700" } ], "headline-lg-mobile": [ "22px", { "lineHeight": "30px", "fontWeight": "700" } ], "headline-xl-mobile": [ "26px", { "lineHeight": "36px", "fontWeight": "700" } ], "label-md": [ "12px", { "lineHeight": "16px", "fontWeight": "500" } ], "code-mono": [ "13px", { "lineHeight": "18px", "fontWeight": "500" } ], "headline-xl": [ "36px", { "lineHeight": "48px", "fontWeight": "700" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased select-none"><aside class="fixed right-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-gutter flex items-center gap-space-sm bg-surface-container-lowest"><img alt="Telecom &amp; Mobile POS Hub Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBUT1stGZS0wGgLpVC-SwHtTvVGYjjBEci41zHpyqxxXGu1l5CP4lI7MJk4sHlmQ0z4Ea8-WC4Prx5hFZpwFBpi9Gm0j9h1z2sfylf1rJL9XSwEey0Qs2pyNrkNXeuKl4Mka4vvvLCdiBUALNcKh10h06Fi8UezWQbaDvz7YArUl6n7Yg1XAZg_dhM9XqTMONX4YAU_h3ZpgQmyiQXRFoGXeEsVD7cgs3wdnjs5tBNJ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface">سنترال بلس</span><span class="font-label-sm text-label-sm text-on-surface-variant">POS &amp; Telecom System</span></div></div><div class="p-space-sm"><div class="bg-surface-container px-space-md py-space-sm rounded-lg flex items-center justify-between mb-space-sm"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-[20px]">storefront</span><span class="font-label-md text-label-md text-on-surface">الفرع الرئيسي (1)</span></div><span class="bg-surface-container-lowest text-secondary font-code-mono text-label-sm px-space-xs py-0.5 rounded">ONLINE</span></div></div><nav class="flex flex-col gap-1 px-space-sm" data-active-classes="bg-secondary text-on-secondary font-bold shadow-[0_4px_6px_-1px_rgba(10,25,47,0.07)]"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard-overview" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-label-lg text-label-lg">لوحة الإدارة والمؤشرات</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="vodafone-cash-wallets" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">account_balance_wallet</span><span class="font-label-lg text-label-lg">محافظ فودافون كاش</span></div><span class="bg-surface-container-highest text-on-surface font-code-mono text-label-sm px-space-xs py-0.5 rounded-full">18 خط</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="chargers-cables" href="#"><span class="material-symbols-outlined text-[20px]">cable</span><span class="font-label-lg text-label-lg">الشواحن والوصلات</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-all bg-secondary text-on-secondary font-bold shadow-[0_4px_6px_-1px_rgba(10,25,47,0.07)]" data-path="phones-sales-inventory" href="#"><span class="material-symbols-outlined text-[20px]">smartphone</span><span class="font-label-lg text-label-lg">مبيعات التليفونات (IMEI)</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="headphones-audio" href="#"><span class="material-symbols-outlined text-[20px]">headphones</span><span class="font-label-lg text-label-lg">قسم السماعات والصوتيات</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="speakers-sound" href="#"><span class="material-symbols-outlined text-[20px]">speaker</span><span class="font-label-lg text-label-lg">قسم الصبات والمكبرات</span></a></nav></div><div class="p-space-sm flex flex-col gap-space-xs bg-surface-container-lowest mx-space-sm mb-space-sm rounded-xl"><div class="flex items-center justify-between"><span class="font-label-md text-label-md text-on-surface-variant">درج الكاشير الحالي</span><span class="font-code-mono text-label-md text-on-tertiary-container font-bold">نشط</span></div><div class="flex items-baseline justify-between"><span class="font-headline-sm text-headline-sm text-on-surface">0.00</span><span class="font-label-md text-label-md text-on-surface-variant">ج.م</span></div><div class="pt-space-xs flex items-center justify-between text-on-surface-variant"><span class="font-label-sm text-label-sm">الوردية: صباحية #402</span><button class="hover:text-secondary flex items-center" type="button"><span class="material-symbols-outlined text-[16px]">lock_clock</span></button></div></div></aside><div class="pr-72 min-h-screen flex flex-col justify-between"><header class="fixed top-0 right-72 left-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-desktop"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-space-xs rounded-full shadow-[0_1px_3px_0_rgba(10,25,47,0.04)]"><span class="w-2.5 h-2.5 rounded-full bg-on-tertiary-container animate-pulse"></span><span class="font-label-md text-label-md text-on-surface">قارئ الباركود متصل جاهز للمسح</span><span class="material-symbols-outlined text-on-tertiary-container text-[18px]">qr_code_scanner</span></div><button class="bg-secondary-container hover:bg-secondary text-on-secondary px-space-md py-space-xs rounded-lg flex items-center gap-space-xs transition-all shadow-[0_4px_6px_-1px_rgba(10,25,47,0.07)]" type="button"><span class="material-symbols-outlined text-[18px]">bolt</span><span class="font-headline-sm text-headline-sm">نقطة بيع سريعة (POS)</span><kbd class="bg-surface-container-lowest/20 font-code-mono text-label-sm px-1.5 py-0.5 rounded text-on-secondary">F2</kbd></button><button class="bg-surface-container-high hover:bg-surface-container text-on-surface px-space-md py-space-xs rounded-lg flex items-center gap-space-xs transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">add_circle</span><span class="font-label-lg text-label-lg">صنف جديد</span><kbd class="bg-surface-container-lowest font-code-mono text-label-sm px-1.5 py-0.5 rounded text-on-surface-variant">F1</kbd></button></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container-low px-space-md py-space-xs rounded-lg"><span class="font-label-md text-label-md text-on-surface-variant">عهدة الكاش:</span><span class="font-headline-sm text-headline-sm text-secondary">0.00 ج.م</span></div><button class="w-9 h-9 rounded-lg bg-surface-container-low hover:bg-surface-container flex items-center justify-center text-on-surface relative transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 left-2 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-space-xs pr-space-xs"><div class="flex flex-col text-left"><span class="font-label-lg text-label-lg text-on-surface">أحمد الكاشير</span><span class="font-label-sm text-label-sm text-on-surface-variant">مدير وردية</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 pb-10 px-gutter-desktop bg-surface flex-1"><div class="flex flex-col w-full">
+<!-- Top Bar Metrics Strip -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-space-lg">
+<!-- Metric 1: In Stock -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-[0_1px_3px_0_rgba(10,25,47,0.04)] flex items-center justify-between relative overflow-hidden group hover:shadow-[0_4px_6px_-1px_rgba(10,25,47,0.07)] transition-all">
+<div class="flex flex-col z-10">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          إجمالي الهواتف المتوفرة بالمحل
+        </span>
+<span class="font-price-display text-price-display text-on-surface mt-space-xs font-code-mono" id="metric-stock-count">0</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">جاهز للبيع الفوري</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary z-10">
+<span class="material-symbols-outlined text-[28px]">smartphone</span>
+</div>
+<div class="absolute -bottom-6 -left-6 w-20 h-20 bg-secondary/5 rounded-full blur-xl pointer-events-none"></div>
+</div>
+<!-- Metric 2: Stock Valuation -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-[0_1px_3px_0_rgba(10,25,47,0.04)] flex items-center justify-between relative overflow-hidden group hover:shadow-[0_4px_6px_-1px_rgba(10,25,47,0.07)] transition-all">
+<div class="flex flex-col z-10">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+          قيمة مخزون الهواتف
+        </span>
+<div class="flex items-baseline gap-1 mt-space-xs">
+<span class="font-price-display text-price-display text-on-surface font-code-mono" id="metric-stock-value">0.00</span>
+<span class="font-label-md text-label-md text-on-surface-variant">ج.م</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-tertiary-container font-code-mono">بسعر رأس المال</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-tertiary-container z-10">
+<span class="material-symbols-outlined text-[28px]">inventory_2</span>
+</div>
+<div class="absolute -bottom-6 -left-6 w-20 h-20 bg-on-tertiary-container/5 rounded-full blur-xl pointer-events-none"></div>
+</div>
+<!-- Metric 3: Sold Today -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-[0_1px_3px_0_rgba(10,25,47,0.04)] flex items-center justify-between relative overflow-hidden group hover:shadow-[0_4px_6px_-1px_rgba(10,25,47,0.07)] transition-all">
+<div class="flex flex-col z-10">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+          هواتف تم بيعها اليوم
+        </span>
+<div class="flex items-baseline gap-1 mt-space-xs">
+<span class="font-price-display text-price-display text-secondary font-code-mono" id="metric-sold-today">0</span>
+<span class="font-label-md text-label-md text-on-surface-variant">جهاز</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">فواتير مسجلة اليوم</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary z-10">
+<span class="material-symbols-outlined text-[28px]">point_of_sale</span>
+</div>
+<div class="absolute -bottom-6 -left-6 w-20 h-20 bg-secondary-container/10 rounded-full blur-xl pointer-events-none"></div>
+</div>
+<!-- Metric 4: Daily Profit -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-[0_1px_3px_0_rgba(10,25,47,0.04)] flex items-center justify-between relative overflow-hidden group hover:shadow-[0_4px_6px_-1px_rgba(10,25,47,0.07)] transition-all">
+<div class="flex flex-col z-10">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+          صافي أرباح مبيعات الهواتف
+        </span>
+<div class="flex items-baseline gap-1 mt-space-xs">
+<span class="font-price-display text-price-display text-on-tertiary-container font-code-mono" id="metric-profit">0.00</span>
+<span class="font-label-md text-label-md text-on-surface-variant">ج.م</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">محدث لحظياً مع كل عملية</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-tertiary-container z-10">
+<span class="material-symbols-outlined text-[28px]">trending_up</span>
+</div>
+<div class="absolute -bottom-6 -left-6 w-20 h-20 bg-on-tertiary-container/5 rounded-full blur-xl pointer-events-none"></div>
+</div>
+</div>
+<!-- Primary Operations Bar -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-[0_1px_3px_0_rgba(10,25,47,0.04)] mb-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<!-- Search & Live IMEI Barcode Scanner Field -->
+<div class="relative flex-1">
+<div class="absolute inset-y-0 right-0 pr-space-md flex items-center pointer-events-none text-secondary">
+<span class="material-symbols-outlined text-[22px]">qr_code_scanner</span>
+</div>
+<input class="w-full bg-surface-container-low text-on-surface font-code-mono text-body-md pr-12 pl-space-md py-3 rounded-lg focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary/20 transition-all placeholder:text-on-surface-variant" id="imeiSearchInput" placeholder="امسح أو أدخل رقم السيريال أو IMEI للهاتف (15 رقماً)..." type="text"/>
+<div class="absolute inset-y-0 left-0 pl-space-md flex items-center gap-space-xs">
+<span class="text-label-sm font-code-mono text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">AUTO SCAN</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="bg-secondary text-on-secondary hover:bg-secondary-container px-space-md py-2.5 rounded-lg flex items-center gap-space-xs shadow-[0_4px_6px_-1px_rgba(10,25,47,0.07)] transition-all" id="btnOpenAddModal" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span class="font-headline-sm text-headline-sm">+ إضافة هاتف جديد للمخزون</span>
+</button>
+<button class="bg-primary text-on-primary hover:bg-primary-container px-space-md py-2.5 rounded-lg flex items-center gap-space-xs transition-colors" id="btnTriggerSale" type="button">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+<span class="font-label-lg text-label-lg">تسجيل عملية بيع هاتف</span>
+</button>
+<button class="bg-surface-container-high hover:bg-surface-container text-on-surface px-space-md py-2.5 rounded-lg flex items-center gap-space-xs transition-colors" id="btnPrintReport" type="button">
+<span class="material-symbols-outlined text-[20px]">print</span>
+<span class="font-label-lg text-label-lg">طباعة تقرير هواتف المحل</span>
+</button>
+</div>
+</div>
+<!-- Filter Chips Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs border-t border-surface-container">
+<div class="flex items-center gap-space-xs overflow-x-auto py-1 scrollbar-none">
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-space-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">filter_alt</span>
+          الحالة:
+        </span>
+<button class="filter-chip-state bg-primary text-on-primary px-space-md py-1 rounded-full font-label-md text-label-md transition-all" data-state="all" type="button">الكل</button>
+<button class="filter-chip-state bg-surface-container-high text-on-surface-variant hover:text-on-surface px-space-md py-1 rounded-full font-label-md text-label-md transition-all" data-state="new" type="button">جديد (برشام)</button>
+<button class="filter-chip-state bg-surface-container-high text-on-surface-variant hover:text-on-surface px-space-md py-1 rounded-full font-label-md text-label-md transition-all" data-state="used" type="button">كسر زيرو / مستعمل</button>
+<button class="filter-chip-state bg-surface-container-high text-on-surface-variant hover:text-on-surface px-space-md py-1 rounded-full font-label-md text-label-md transition-all" data-state="sold" type="button">تم بيعه</button>
+</div>
+<div class="flex items-center gap-space-xs overflow-x-auto py-1 scrollbar-none">
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-space-xs">الماركة:</span>
+<button class="filter-chip-brand bg-primary text-on-primary px-space-sm py-1 rounded-md font-label-sm text-label-sm" data-brand="all" type="button">كل الماركات</button>
+<button class="filter-chip-brand bg-surface-container-low hover:bg-surface-container-high text-on-surface px-space-sm py-1 rounded-md font-label-sm text-label-sm" data-brand="Apple" type="button">Apple</button>
+<button class="filter-chip-brand bg-surface-container-low hover:bg-surface-container-high text-on-surface px-space-sm py-1 rounded-md font-label-sm text-label-sm" data-brand="Samsung" type="button">Samsung</button>
+<button class="filter-chip-brand bg-surface-container-low hover:bg-surface-container-high text-on-surface px-space-sm py-1 rounded-md font-label-sm text-label-sm" data-brand="Xiaomi" type="button">Xiaomi</button>
+<button class="filter-chip-brand bg-surface-container-low hover:bg-surface-container-high text-on-surface px-space-sm py-1 rounded-md font-label-sm text-label-sm" data-brand="Realme" type="button">Realme</button>
+<button class="filter-chip-brand bg-surface-container-low hover:bg-surface-container-high text-on-surface px-space-sm py-1 rounded-md font-label-sm text-label-sm" data-brand="Oppo" type="button">Oppo</button>
+<button class="filter-chip-brand bg-surface-container-low hover:bg-surface-container-high text-on-surface px-space-sm py-1 rounded-md font-label-sm text-label-sm" data-brand="Infinix" type="button">Infinix</button>
+</div>
+</div>
+</div>
+<!-- Phones Inventory & Sales Data Table Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_1px_3px_0_rgba(10,25,47,0.04)] overflow-hidden flex flex-col min-h-[440px]">
+<!-- Table Header Info Bar -->
+<div class="px-space-md py-space-sm bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface">سجل هواتف المحل والأجهزة</span>
+<span class="bg-surface-container-highest text-on-surface font-code-mono text-label-sm px-2 py-0.5 rounded-full" id="badge-records-count">0 مسجل</span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span> جديد</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary-container"></span> مستعمل</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-outline"></span> مباع</span>
+</div>
+</div>
+<!-- Responsive Table -->
+<div class="overflow-x-auto w-full flex-1">
+<table class="w-full text-right border-collapse">
+<thead>
+<tr class="bg-surface-container font-label-md text-label-md text-on-surface-variant">
+<th class="py-3 px-space-md">الماركة والموديل</th>
+<th class="py-3 px-space-md">رقم IMEI / السيريال</th>
+<th class="py-3 px-space-md">اللون</th>
+<th class="py-3 px-space-md">السعة / الرام</th>
+<th class="py-3 px-space-md">الحالة</th>
+<th class="py-3 px-space-md">سعر التكلفة</th>
+<th class="py-3 px-space-md">سعر البيع</th>
+<th class="py-3 px-space-md">حالة البيع / العميل</th>
+<th class="py-3 px-space-md text-center">الإجراءات</th>
+</tr>
+</thead>
+<tbody id="phonesTableBody">
+<!-- Rows will be injected dynamically -->
+</tbody>
+</table>
+<!-- Empty State View (Visible initially) -->
+<div class="flex flex-col items-center justify-center py-20 px-space-lg text-center" id="emptyStateContainer">
+<div class="w-24 h-24 rounded-full bg-surface-container-high flex items-center justify-center text-secondary mb-space-md shadow-inner">
+<span class="material-symbols-outlined text-[48px]">phone_android</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-space-xs">مخزن الهواتف فارغ حالياً (0 هواتف)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">
+          ابدأ بتسجيل أول جهاز بالضغط على زر الإضافة أو مسح ملصق IMEI الخاص بالعلبة للبدء في تتبع المبيعات والضمان
+        </p>
+<button class="bg-secondary text-on-secondary hover:bg-secondary-container px-space-xl py-3 rounded-xl flex items-center gap-space-sm shadow-[0_4px_6px_-1px_rgba(10,25,47,0.07)] transition-all" id="btnEmptyAdd" type="button">
+<span class="material-symbols-outlined text-[22px]">add_circle</span>
+<span class="font-headline-sm text-headline-sm">+ تسجيل وإضافة هاتف جديد</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Modal: Add / Edit Phone In Inventory -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm hidden items-center justify-center p-space-md" id="phoneFormModal">
+<div class="bg-surface-container-lowest rounded-2xl w-full max-w-2xl overflow-hidden shadow-[0_20px_25px_-5px_rgba(10,25,47,0.12)] animate-scale-in">
+<!-- Modal Header -->
+<div class="bg-surface-container-low px-space-lg py-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[24px]">phonelink_setup</span>
+<h2 class="font-headline-md text-headline-md text-on-surface" id="modalTitle">إضافة هاتف جديد للمخزن</h2>
+</div>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface-variant" id="btnClosePhoneModal" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body Form -->
+<form class="p-space-lg flex flex-col gap-space-md" id="phoneForm">
+<input id="formPhoneId" type="hidden" value=""/>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Brand Select -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface">الماركة <span class="text-error">*</span></label>
+<select class="bg-surface-container-low px-space-md py-2.5 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/20" id="inputBrand" required="">
+<option value="Apple">Apple (آبل)</option>
+<option value="Samsung">Samsung (سامسونج)</option>
+<option value="Xiaomi">Xiaomi (شاومي)</option>
+<option value="Realme">Realme (ريلمي)</option>
+<option value="Oppo">Oppo (أوبو)</option>
+<option value="Infinix">Infinix (إنفينكس)</option>
+<option value="Vivo">Vivo (فيفو)</option>
+<option value="Honor">Honor (هونر)</option>
+<option value="Other">أخرى</option>
+</select>
+</div>
+<!-- Model Name -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface">موديل الهاتف <span class="text-error">*</span></label>
+<input class="bg-surface-container-low px-space-md py-2.5 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/20" id="inputModel" placeholder="مثال: iPhone 15 Pro أو Galaxy S23" required="" type="text"/>
+</div>
+</div>
+<!-- IMEI Dual / Single -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface">رقم الـ IMEI 1 (الأساسي) <span class="text-error">*</span></label>
+<span class="font-code-mono text-label-sm text-secondary">15 رقماً فريداً</span>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-container-low px-space-md py-2.5 rounded-lg text-body-md font-code-mono text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/20 tracking-wider" id="inputIMEI" maxlength="15" placeholder="358249102938472" required="" type="text"/>
+<button class="absolute left-2 top-2 bg-surface-container px-2 py-0.5 rounded text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface" id="btnGenIMEI" title="توليد رقم تجريبي" type="button">توليد عشوائي</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Color -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface">اللون</label>
+<input class="bg-surface-container-low px-space-md py-2.5 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/20" id="inputColor" placeholder="أسود، كحلي، أبيض..." type="text"/>
+</div>
+<!-- Storage / RAM -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface">الذاكرة / الرام <span class="text-error">*</span></label>
+<input class="bg-surface-container-low px-space-md py-2.5 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/20" id="inputStorage" placeholder="128GB / 8GB RAM" required="" type="text"/>
+</div>
+<!-- Condition -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface">الحالة <span class="text-error">*</span></label>
+<select class="bg-surface-container-low px-space-md py-2.5 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/20" id="inputCondition" required="">
+<option value="جديد (برشام)">جديد (برشام)</option>
+<option value="كسر زيرو (شبه جديد)">كسر زيرو (شبه جديد)</option>
+<option value="مستعمل بحالة جيدة">مستعمل بحالة جيدة</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Cost Price -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface">سعر التكلفة (الشراء) <span class="text-error">*</span></label>
+<div class="relative">
+<input class="w-full bg-surface-container-low pr-space-md pl-12 py-2.5 rounded-lg text-body-md font-code-mono text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/20" id="inputCost" placeholder="0.00" required="" step="0.5" type="number"/>
+<span class="absolute left-3 top-2.5 text-on-surface-variant font-label-md text-label-md">ج.م</span>
+</div>
+</div>
+<!-- Sell Price -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface">سعر البيع المقترح <span class="text-error">*</span></label>
+<div class="relative">
+<input class="w-full bg-surface-container-low pr-space-md pl-12 py-2.5 rounded-lg text-body-md font-code-mono text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/20" id="inputPrice" placeholder="0.00" required="" step="0.5" type="number"/>
+<span class="absolute left-3 top-2.5 text-on-surface-variant font-label-md text-label-md">ج.م</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-sm border-t border-surface-container mt-space-xs">
+<button class="px-space-md py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container" id="btnCancelPhoneModal" type="button">إلغاء</button>
+<button class="bg-secondary hover:bg-secondary-container text-on-secondary px-space-lg py-2.5 rounded-lg font-headline-sm text-headline-sm shadow-md" type="submit">حفظ الجهاز بالمخزون</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Modal: Legal Fast Sale & Customer Identity Verification -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm hidden items-center justify-center p-space-md" id="saleModal">
+<div class="bg-surface-container-lowest rounded-2xl w-full max-w-xl overflow-hidden shadow-[0_20px_25px_-5px_rgba(10,25,47,0.12)]">
+<!-- Header -->
+<div class="bg-primary text-on-primary px-space-lg py-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+<div>
+<h2 class="font-headline-md text-headline-md">تسجيل مبايعة هاتف وضمان رسمي</h2>
+<p class="font-label-sm text-label-sm text-on-primary-container">توثيق بيانات المشتري والرقم القومي للالتزام الأمني</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg hover:bg-white/10 flex items-center justify-center text-on-primary" id="btnCloseSaleModal" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Selected Device Summary Banner -->
+<div class="bg-surface-container-low p-space-md flex items-center justify-between border-b border-surface-container">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">phone_iphone</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface" id="saleSummaryModel">موديل الجهاز</span>
+<span class="font-code-mono text-label-sm text-on-surface-variant" id="saleSummaryIMEI">IMEI: ---------</span>
+</div>
+</div>
+<div class="text-left flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-on-surface-variant">سعر البيع المطلوب</span>
+<span class="font-headline-md text-headline-md text-secondary font-code-mono" id="saleSummaryPrice">0.00 ج.م</span>
+</div>
+</div>
+<!-- Sale Form -->
+<form class="p-space-lg flex flex-col gap-space-md" id="saleForm">
+<input id="salePhoneId" type="hidden" value=""/>
+<!-- Customer Name -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface">اسم العميل الثلاثي / المشتري <span class="text-error">*</span></label>
+<input class="bg-surface-container-low px-space-md py-2.5 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/20" id="custName" placeholder="مثال: محمد أحمد محمود السيد" required="" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- National ID (14 Digits) -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface">الرقم القومي (14 رقم) <span class="text-error">*</span></label>
+<span class="font-label-sm text-label-sm text-on-tertiary-container">إلزامي للمستعمل</span>
+</div>
+<input class="bg-surface-container-low px-space-md py-2.5 rounded-lg text-body-md font-code-mono text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/20" id="custNationalId" maxlength="14" placeholder="29810151234567" required="" type="text"/>
+</div>
+<!-- Customer Phone -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface">رقم هاتف العميل <span class="text-error">*</span></label>
+<input class="bg-surface-container-low px-space-md py-2.5 rounded-lg text-body-md font-code-mono text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/20" id="custPhone" placeholder="010xxxxxxxx" required="" type="tel"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Actual Sale Price (Can adjust discount) -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface">السعر النهائي المتفق عليه <span class="text-error">*</span></label>
+<div class="relative">
+<input class="w-full bg-surface-container-low pr-space-md pl-12 py-2.5 rounded-lg text-body-md font-code-mono text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/20" id="custActualPrice" required="" step="1" type="number"/>
+<span class="absolute left-3 top-2.5 text-on-surface-variant font-label-md text-label-md">ج.م</span>
+</div>
+</div>
+<!-- Payment Method -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface">طريقة التحصيل</label>
+<select class="bg-surface-container-low px-space-md py-2.5 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/20" id="custPayMethod">
+<option value="نقدي (كاش)">نقدي (درج الكاشير)</option>
+<option value="فودافون كاش">محفظة فودافون كاش</option>
+<option value="فيزا / شبكة">بطاقة بنكية POS</option>
+<option value="تقسيط / آجل">تقسيط ودي</option>
+</select>
+</div>
+</div>
+<!-- Notes / Warranty -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface">ملاحظات الفاتورة والضمان</label>
+<input class="bg-surface-container-low px-space-md py-2 rounded-lg text-body-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/20" id="custNotes" placeholder="ضمان محل 14 يوم تجربة واسترجاع + فاتورة ضريبية" type="text"/>
+</div>
+<div class="flex items-center justify-between pt-space-sm border-t border-surface-container mt-space-xs">
+<button class="px-space-md py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container" id="btnCancelSaleModal" type="button">إلغاء</button>
+<div class="flex items-center gap-space-sm">
+<button class="bg-on-tertiary-container hover:opacity-90 text-on-tertiary px-space-lg py-2.5 rounded-lg font-headline-sm text-headline-sm flex items-center gap-space-xs shadow-md" type="submit">
+<span class="material-symbols-outlined text-[20px]">print</span>
+<span>تأكيد وطباعة عقد المبايعة</span>
+</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+<!-- Toast Notification -->
+<div class="fixed bottom-12 left-12 z-50 bg-inverse-surface text-inverse-on-surface px-space-lg py-space-sm rounded-xl shadow-xl flex items-center gap-space-sm transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none" id="toastNotification">
+<span class="material-symbols-outlined text-tertiary-fixed text-[22px]" id="toastIcon">check_circle</span>
+<span class="font-label-lg text-label-lg" id="toastMessage">تمت العملية بنجاح</span>
+</div>
+</div>
+<script>
+  (function () {
+    // Initial state: Phone inventory database (empty initially as mandated)
+    let phones = [];
+    let activeFilterState = 'all';
+    let activeFilterBrand = 'all';
+    let searchQuery = '';
+
+    // DOM Elements
+    const emptyState = document.getElementById('emptyStateContainer');
+    const tableBody = document.getElementById('phonesTableBody');
+    const recordsCountBadge = document.getElementById('badge-records-count');
+    const imeiSearchInput = document.getElementById('imeiSearchInput');
+
+    // Metrics DOM
+    const metricStockCount = document.getElementById('metric-stock-count');
+    const metricStockValue = document.getElementById('metric-stock-value');
+    const metricSoldToday = document.getElementById('metric-sold-today');
+    const metricProfit = document.getElementById('metric-profit');
+
+    // Modal Add Phone
+    const phoneModal = document.getElementById('phoneFormModal');
+    const btnOpenAddModal = document.getElementById('btnOpenAddModal');
+    const btnEmptyAdd = document.getElementById('btnEmptyAdd');
+    const btnClosePhoneModal = document.getElementById('btnClosePhoneModal');
+    const btnCancelPhoneModal = document.getElementById('btnCancelPhoneModal');
+    const phoneForm = document.getElementById('phoneForm');
+    const modalTitle = document.getElementById('modalTitle');
+    const btnGenIMEI = document.getElementById('btnGenIMEI');
+
+    // Modal Sale
+    const saleModal = document.getElementById('saleModal');
+    const btnCloseSaleModal = document.getElementById('btnCloseSaleModal');
+    const btnCancelSaleModal = document.getElementById('btnCancelSaleModal');
+    const saleForm = document.getElementById('saleForm');
+    const btnTriggerSale = document.getElementById('btnTriggerSale');
+
+    // Toast
+    const toast = document.getElementById('toastNotification');
+    const toastMessage = document.getElementById('toastMessage');
+
+    function showToast(msg, icon = 'check_circle') {
+      toastMessage.textContent = msg;
+      document.getElementById('toastIcon').textContent = icon;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3000);
+    }
+
+    // Refresh KPI Metrics
+    function updateMetrics() {
+      const inStockPhones = phones.filter(p => !p.sold);
+      const soldPhones = phones.filter(p => p.sold);
+
+      // Total Available
+      metricStockCount.textContent = inStockPhones.length;
+
+      // Stock Capital Valuation
+      const totalValuation = inStockPhones.reduce((acc, curr) => acc + Number(curr.costPrice || 0), 0);
+      metricStockValue.textContent = totalValuation.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+      // Sold Today
+      metricSoldToday.textContent = soldPhones.length;
+
+      // Net Profit from sold phones
+      const totalProfit = soldPhones.reduce((acc, curr) => {
+        const soldPrice = Number(curr.soldPrice || curr.sellPrice || 0);
+        const cost = Number(curr.costPrice || 0);
+        return acc + (soldPrice - cost);
+      }, 0);
+      metricProfit.textContent = totalProfit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    // Render Data Table
+    function renderTable() {
+      // Filter logic
+      const filtered = phones.filter(item => {
+        // State filter
+        if (activeFilterState === 'new' && (item.sold || !item.condition.includes('جديد'))) return false;
+        if (activeFilterState === 'used' && (item.sold || item.condition.includes('جديد'))) return false;
+        if (activeFilterState === 'sold' && !item.sold) return false;
+
+        // Brand filter
+        if (activeFilterBrand !== 'all' && item.brand.toLowerCase() !== activeFilterBrand.toLowerCase()) return false;
+
+        // Search text
+        if (searchQuery.trim() !== '') {
+          const q = searchQuery.toLowerCase();
+          const matchIMEI = item.imei.toLowerCase().includes(q);
+          const matchModel = item.model.toLowerCase().includes(q);
+          const matchBrand = item.brand.toLowerCase().includes(q);
+          const matchCust = item.customerName ? item.customerName.toLowerCase().includes(q) : false;
+          if (!matchIMEI && !matchModel && !matchBrand && !matchCust) return false;
+        }
+
+        return true;
+      });
+
+      recordsCountBadge.textContent = `${filtered.length} مسجل`;
+
+      if (phones.length === 0) {
+        tableBody.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        emptyState.classList.add('flex');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      emptyState.classList.remove('flex');
+
+      if (filtered.length === 0) {
+        tableBody.innerHTML = `
+          <tr>
+            <td colspan="9" class="py-12 text-center text-on-surface-variant font-body-md">
+              لا توجد أجهزة مطابقة لخيارات البحث أو الفلاتر المحددة.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tableBody.innerHTML = filtered.map(item => {
+        const isSold = item.sold;
+        const conditionBadge = item.condition.includes('جديد')
+          ? '<span class="bg-surface-container text-on-tertiary-container font-label-sm text-label-sm px-2.5 py-1 rounded-full font-bold">جديد (برشام)</span>'
+          : '<span class="bg-surface-container-high text-secondary font-label-sm text-label-sm px-2.5 py-1 rounded-full font-bold">كسر زيرو / مستعمل</span>';
+
+        return `
+          <tr class="border-b border-surface-container/60 hover:bg-surface-container-low/50 transition-colors ${isSold ? 'opacity-80 bg-surface-container-low/20' : ''}">
+            <td class="py-3 px-space-md">
+              <div class="flex items-center gap-space-xs">
+                <span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center font-bold font-headline-sm text-secondary text-label-md">
+                  ${item.brand.charAt(0)}
+                </span>
+                <div class="flex flex-col">
+                  <span class="font-headline-sm text-headline-sm text-on-surface">${item.brand} ${item.model}</span>
+                  <span class="font-label-sm text-label-sm text-on-surface-variant">${item.brand} Official</span>
+                </div>
+              </div>
+            </td>
+            <td class="py-3 px-space-md font-code-mono text-body-sm text-on-surface select-all">
+              <div class="flex items-center gap-1">
+                <span>${item.imei}</span>
+                <button type="button" class="text-on-surface-variant hover:text-secondary" onclick="navigator.clipboard.writeText('${item.imei}'); window.showAppToast('تم نسخ رقم IMEI');">
+                  <span class="material-symbols-outlined text-[16px]">content_copy</span>
+                </button>
+              </div>
+            </td>
+            <td class="py-3 px-space-md font-body-md text-on-surface">${item.color || '—'}</td>
+            <td class="py-3 px-space-md font-code-mono text-body-sm text-on-surface">${item.storage}</td>
+            <td class="py-3 px-space-md">${conditionBadge}</td>
+            <td class="py-3 px-space-md font-code-mono text-body-md text-on-surface-variant">${Number(item.costPrice).toFixed(2)} ج.م</td>
+            <td class="py-3 px-space-md font-code-mono text-headline-sm text-headline-sm text-on-surface font-bold">${Number(item.sellPrice).toFixed(2)} ج.م</td>
+            <td class="py-3 px-space-md">
+              ${isSold ? `
+                <div class="flex flex-col">
+                  <span class="font-label-md text-label-md text-secondary font-bold flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">done_all</span>
+                    ${item.customerName}
+                  </span>
+                  <span class="font-code-mono text-label-sm text-on-surface-variant">${item.customerPhone || ''}</span>
+                </div>
+              ` : `
+                <span class="bg-surface-container text-on-tertiary-container font-code-mono text-label-sm px-2 py-0.5 rounded font-bold">بالمخزن متوفر</span>
+              `}
+            </td>
+            <td class="py-3 px-space-md text-center">
+              <div class="flex items-center justify-center gap-1">
+                ${!isSold ? `
+                  <button 
+                    type="button" 
+                    title="بيع فوري للجهاز"
+                    onclick="window.openSaleProcess('${item.id}')"
+                    class="bg-secondary-container hover:bg-secondary text-on-secondary px-2.5 py-1 rounded-lg text-label-md font-label-md flex items-center gap-1 transition-all"
+                  >
+                    <span>⚡ بيع</span>
+                  </button>
+                ` : `
+                  <button 
+                    type="button" 
+                    title="طباعة عقد البيع مجدداً"
+                    onclick="window.printInvoice('${item.id}')"
+                    class="bg-surface-container hover:bg-surface-container-high text-on-surface px-2.5 py-1 rounded-lg text-label-md font-label-md flex items-center gap-1 transition-all"
+                  >
+                    <span class="material-symbols-outlined text-[16px]">receipt_long</span>
+                    <span>عقد</span>
+                  </button>
+                `}
+                <button 
+                  type="button" 
+                  title="تعديل بيانات الجهاز"
+                  onclick="window.editPhoneRecord('${item.id}')"
+                  class="w-7 h-7 rounded-lg hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant"
+                >
+                  <span class="material-symbols-outlined text-[18px]">edit</span>
+                </button>
+                <button 
+                  type="button" 
+                  title="حذف من السجل"
+                  onclick="window.deletePhoneRecord('${item.id}')"
+                  class="w-7 h-7 rounded-lg hover:bg-error-container text-error flex items-center justify-center"
+                >
+                  <span class="material-symbols-outlined text-[18px]">delete</span>
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // Modal triggers & handlers
+    function openAddPhoneModal(existingData = null) {
+      if (existingData) {
+        modalTitle.textContent = 'تعديل بيانات الهاتف المسجل';
+        document.getElementById('formPhoneId').value = existingData.id;
+        document.getElementById('inputBrand').value = existingData.brand;
+        document.getElementById('inputModel').value = existingData.model;
+        document.getElementById('inputIMEI').value = existingData.imei;
+        document.getElementById('inputColor').value = existingData.color || '';
+        document.getElementById('inputStorage').value = existingData.storage;
+        document.getElementById('inputCondition').value = existingData.condition;
+        document.getElementById('inputCost').value = existingData.costPrice;
+        document.getElementById('inputPrice').value = existingData.sellPrice;
+      } else {
+        modalTitle.textContent = 'إضافة هاتف جديد للمخزن';
+        phoneForm.reset();
+        document.getElementById('formPhoneId').value = '';
+      }
+      phoneModal.classList.remove('hidden');
+      phoneModal.classList.add('flex');
+    }
+
+    function closePhoneModal() {
+      phoneModal.classList.add('hidden');
+      phoneModal.classList.remove('flex');
+    }
+
+    btnOpenAddModal.addEventListener('click', () => openAddPhoneModal());
+    btnEmptyAdd.addEventListener('click', () => openAddPhoneModal());
+    btnClosePhoneModal.addEventListener('click', closePhoneModal);
+    btnCancelPhoneModal.addEventListener('click', closePhoneModal);
+
+    // Save Phone Form Submission
+    phoneForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const id = document.getElementById('formPhoneId').value;
+      const brand = document.getElementById('inputBrand').value;
+      const model = document.getElementById('inputModel').value;
+      const imei = document.getElementById('inputIMEI').value.trim();
+      const color = document.getElementById('inputColor').value.trim();
+      const storage = document.getElementById('inputStorage').value.trim();
+      const condition = document.getElementById('inputCondition').value;
+      const costPrice = parseFloat(document.getElementById('inputCost').value);
+      const sellPrice = parseFloat(document.getElementById('inputPrice').value);
+
+      if (id) {
+        // Edit
+        const idx = phones.findIndex(p => p.id === id);
+        if (idx !== -1) {
+          phones[idx] = { ...phones[idx], brand, model, imei, color, storage, condition, costPrice, sellPrice };
+          showToast('تم تحديث بيانات الهاتف بنجاح');
+        }
+      } else {
+        // Check duplicate IMEI
+        if (phones.some(p => p.imei === imei)) {
+          alert('رقم IMEI هذا مسجل مسبقاً بالمخزن لموبايل آخر!');
+          return;
+        }
+
+        const newPhone = {
+          id: 'PH-' + Date.now(),
+          brand,
+          model,
+          imei,
+          color,
+          storage,
+          condition,
+          costPrice,
+          sellPrice,
+          sold: false,
+          createdAt: new Date().toISOString()
+        };
+        phones.unshift(newPhone);
+        showToast('تمت إضافة الهاتف الجديد للمخزون بنجاح');
+      }
+
+      closePhoneModal();
+      updateMetrics();
+      renderTable();
+    });
+
+    // Random Valid 15-digit IMEI generator helper
+    btnGenIMEI.addEventListener('click', () => {
+      let r = '35' + Math.floor(1000000000000 + Math.random() * 9000000000000);
+      document.getElementById('inputIMEI').value = r.substring(0, 15);
+    });
+
+    // Sale Modal Handlers
+    window.openSaleProcess = function (phoneId) {
+      const phone = phones.find(p => p.id === phoneId);
+      if (!phone) return;
+
+      document.getElementById('salePhoneId').value = phone.id;
+      document.getElementById('saleSummaryModel').textContent = `${phone.brand} ${phone.model} (${phone.storage})`;
+      document.getElementById('saleSummaryIMEI').textContent = `IMEI: ${phone.imei}`;
+      document.getElementById('saleSummaryPrice').textContent = `${Number(phone.sellPrice).toFixed(2)} ج.م`;
+      document.getElementById('custActualPrice').value = phone.sellPrice;
+      saleForm.reset();
+      document.getElementById('custActualPrice').value = phone.sellPrice;
+
+      saleModal.classList.remove('hidden');
+      saleModal.classList.add('flex');
+    };
+
+    function closeSaleModal() {
+      saleModal.classList.add('hidden');
+      saleModal.classList.remove('flex');
+    }
+
+    btnCloseSaleModal.addEventListener('click', closeSaleModal);
+    btnCancelSaleModal.addEventListener('click', closeSaleModal);
+
+    saleForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const phoneId = document.getElementById('salePhoneId').value;
+      const custName = document.getElementById('custName').value.trim();
+      const custNatId = document.getElementById('custNationalId').value.trim();
+      const custPhone = document.getElementById('custPhone').value.trim();
+      const actualPrice = parseFloat(document.getElementById('custActualPrice').value);
+      const payMethod = document.getElementById('custPayMethod').value;
+      const notes = document.getElementById('custNotes').value;
+
+      const idx = phones.findIndex(p => p.id === phoneId);
+      if (idx !== -1) {
+        phones[idx].sold = true;
+        phones[idx].soldPrice = actualPrice;
+        phones[idx].customerName = custName;
+        phones[idx].customerNationalId = custNatId;
+        phones[idx].customerPhone = custPhone;
+        phones[idx].paymentMethod = payMethod;
+        phones[idx].saleNotes = notes;
+        phones[idx].soldAt = new Date().toLocaleTimeString('ar-EG');
+
+        showToast(`تم بيع الهاتف للعميل ${custName} وطباعة العقد`, 'verified');
+        closeSaleModal();
+        updateMetrics();
+        renderTable();
+      }
+    });
+
+    // Quick Trigger Sale from Main Header
+    btnTriggerSale.addEventListener('click', () => {
+      const available = phones.filter(p => !p.sold);
+      if (available.length === 0) {
+        alert('لا توجد هواتف متوفرة بالمخزن حالياً للبيع!');
+        return;
+      }
+      // Open with first available or prompt
+      window.openSaleProcess(available[0].id);
+    });
+
+    // Global Action Helpers attached to window
+    window.editPhoneRecord = function (id) {
+      const p = phones.find(x => x.id === id);
+      if (p) openAddPhoneModal(p);
+    };
+
+    window.deletePhoneRecord = function (id) {
+      if (confirm('هل أنت متأكد من حذف هذا الجهاز وسجل الـ IMEI من قاعدة البيانات؟')) {
+        phones = phones.filter(x => x.id !== id);
+        showToast('تم حذف الجهاز من المخزون', 'delete');
+        updateMetrics();
+        renderTable();
+      }
+    };
+
+    window.printInvoice = function (id) {
+      const p = phones.find(x => x.id === id);
+      if (p) {
+        alert(`جاري إرسال عقد المبايعة للطابعة الحرارية:\nالعميل: ${p.customerName}\nالهاتف: ${p.brand} ${p.model}\nIMEI: ${p.imei}\nالرقم القومي: ${p.customerNationalId || 'غير مسجل'}`);
+      }
+    };
+
+    window.showAppToast = function (msg) {
+      showToast(msg);
+    };
+
+    // Fast IMEI live Scanner logic
+    imeiSearchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim();
+      renderTable();
+
+      // If exactly 15 digits entered or scanned by hardware gun
+      if (searchQuery.length === 15 && !isNaN(searchQuery)) {
+        const found = phones.find(p => p.imei === searchQuery);
+        if (found) {
+          if (!found.sold) {
+            showToast('تم العثور على الجهاز تلقائياً عبر الباركود', 'qr_code_scanner');
+            setTimeout(() => {
+              window.openSaleProcess(found.id);
+            }, 600);
+          } else {
+            showToast('هذا الهاتف مباع بالفعل مسبقاً!', 'error');
+          }
+        }
+      }
+    });
+
+    // Brand Chips Filter
+    document.querySelectorAll('.filter-chip-brand').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-chip-brand').forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary');
+          b.classList.add('bg-surface-container-low', 'text-on-surface');
+        });
+        btn.classList.add('bg-primary', 'text-on-primary');
+        btn.classList.remove('bg-surface-container-low', 'text-on-surface');
+
+        activeFilterBrand = btn.getAttribute('data-brand');
+        renderTable();
+      });
+    });
+
+    // State Chips Filter
+    document.querySelectorAll('.filter-chip-state').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-chip-state').forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary');
+          b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+        });
+        btn.classList.add('bg-primary', 'text-on-primary');
+        btn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+
+        activeFilterState = btn.getAttribute('data-state');
+        renderTable();
+      });
+    });
+
+    // Print Full Inventory Report
+    document.getElementById('btnPrintReport').addEventListener('click', () => {
+      if (phones.length === 0) {
+        alert('المخزن فارغ حالياً، لا يوجد هواتف لطباعة تقريرها.');
+        return;
+      }
+      window.print();
+    });
+
+    // Keyboard Shortcuts support (F1 to add, F3 to focus search)
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'F1') {
+        e.preventDefault();
+        openAddPhoneModal();
+      }
+      if (e.key === 'F3') {
+        e.preventDefault();
+        imeiSearchInput.focus();
+      }
+    });
+
+    // Initial boot render
+    updateMetrics();
+    renderTable();
+  })();
+</script></main><footer class="w-full h-10 bg-surface-container-lowest shadow-[0_-1px_4px_rgba(0,0,0,0.02)] flex items-center justify-between px-gutter-desktop z-30"><div class="flex items-center gap-space-lg text-on-surface-variant font-label-md text-label-md"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">schedule</span><span>بدء الوردية: 09:00 ص (3 س 24 د)</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">print</span><span>طابعة الفواتير الحرارية: جاهزة (USB-01)</span></div></div><div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant"><span class="flex items-center gap-1"><kbd class="bg-surface-container px-1.5 py-0.5 rounded font-code-mono text-on-surface">F3</kbd> بحث مخزني سريع</span><span class="flex items-center gap-1"><kbd class="bg-surface-container px-1.5 py-0.5 rounded font-code-mono text-on-surface">F4</kbd> تحويل محفظة</span><span class="flex items-center gap-1"><kbd class="bg-surface-container px-1.5 py-0.5 rounded font-code-mono text-on-surface">ESC</kbd> تعليق الفاتورة</span></div></footer></div></body></html>
